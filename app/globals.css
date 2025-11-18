@@ -1,14 +1,24 @@
 /* ------------------------------------------------------
-   GOOGLE FONT – unbedingt ganz oben (verhindert CLS)
+   GOOGLE FONT – CLS-sicher
 ------------------------------------------------------ */
 @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
 
 /* ------------------------------------------------------
-   BASE (Tailwind)
+   TAILWIND
 ------------------------------------------------------ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ------------------------------------------------------
+   ROOT VARIABLES (Brand Colors)
+------------------------------------------------------ */
+:root {
+  --gold: #d4a857;
+  --gold-hover: #c39645;
+  --dark: #1a1a1a;
+  --cream: #faf8f6;
+}
 
 /* ------------------------------------------------------
    BRAND FONT (Logo)
@@ -21,7 +31,7 @@
 }
 
 /* ------------------------------------------------------
-   GLOBAL STYLE – Modern, Mediterran, Premium
+   GLOBAL BASE / TYPOGRAPHY
 ------------------------------------------------------ */
 
 html {
@@ -33,24 +43,22 @@ body {
   font-feature-settings: "liga", "kern";
 }
 
-/* Headings: eleganter, ruhiger, dichter */
+/* Headings – ruhig, elegant */
 h1, h2, h3 {
   @apply tracking-tight font-semibold text-[#1a1a1a];
   line-height: 1.15;
 }
 
-/* Für große Überschriften */
 .section-title {
   @apply text-3xl md:text-4xl font-semibold mb-6 text-[#1f1f1f];
 }
 
-/* Für leichte Fließtexte */
 .subtext {
   @apply text-lg text-[#6f6f6f] leading-relaxed;
 }
 
 /* ------------------------------------------------------
-   ANIMATIONS – weicher, organischer, hochwertiger
+   FADE-IN ANIMATION
 ------------------------------------------------------ */
 
 .fade-in {
@@ -65,68 +73,152 @@ h1, h2, h3 {
 }
 
 /* ------------------------------------------------------
-   BUTTONS – Premium Buttons (Gold / Outline / Light)
+   COUNTDOWN – 3D FLIP ANIMATION (Premium)
+------------------------------------------------------ */
+
+.count-wrapper {
+  perspective: 1200px;
+}
+
+.count-flip {
+  display: inline-block;
+  animation: countFlip 0.6s ease;
+  transform-origin: center top;
+  backface-visibility: hidden;
+}
+
+@keyframes countFlip {
+  0% {
+    transform: rotateX(85deg);
+    opacity: 0;
+  }
+  60% {
+    transform: rotateX(-15deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------------------
+   OPENING BANNER ANIMATIONS
+------------------------------------------------------ */
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(200%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+.animate-pulseGlow {
+  animation: pulseGlow 1.8s infinite ease-in-out;
+}
+
+@keyframes fadeInBanner {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+.animate-fadeIn {
+  animation: fadeInBanner 1s ease-out forwards;
+}
+
+/* ------------------------------------------------------
+   BUTTONS – Gold, Outline, Light
 ------------------------------------------------------ */
 
 .btn-gold {
-  @apply px-6 py-3 rounded-lg bg-gold text-dark font-semibold shadow-md 
-         hover:bg-[#c39645] hover:shadow-lg transition duration-300;
+  @apply px-6 py-3 rounded-lg text-dark font-semibold shadow-md transition duration-300;
+  background-color: var(--gold);
+}
+
+.btn-gold:hover {
+  background-color: var(--gold-hover);
+  @apply shadow-lg;
 }
 
 .btn-outline {
-  @apply px-6 py-3 rounded-lg border border-dark text-dark font-semibold
-         hover:bg-dark hover:text-cream transition duration-300;
+  @apply px-6 py-3 rounded-lg border border-dark text-dark font-semibold transition duration-300;
+}
+
+.btn-outline:hover {
+  @apply bg-dark text-cream;
 }
 
 .btn-light {
-  @apply px-6 py-3 rounded-lg bg-white text-dark font-medium shadow-sm
-         hover:bg-[#f3f3f3] transition duration-300;
+  @apply px-6 py-3 rounded-lg bg-white text-dark font-medium shadow-sm transition duration-300;
+}
+
+.btn-light:hover {
+  @apply bg-[#f3f3f3];
 }
 
 /* ------------------------------------------------------
-   BRAND UTILITIES – Gold, Dark, Cream
+   BRAND COLOR HELPERS
 ------------------------------------------------------ */
 
 .text-gold {
-  color: #d4a857;
+  color: var(--gold);
 }
 
 .bg-gold {
-  background-color: #d4a857;
+  background-color: var(--gold);
 }
 
 .bg-cream {
-  background-color: #f7f3ee;
+  background-color: var(--cream);
 }
 
 .bg-dark {
-  background-color: #1a1a1a;
+  background-color: var(--dark);
 }
 
 .border-gold {
-  border-color: #d4a857;
-}
-
-/* Edler Divider */
-.section-divider {
-  @apply w-full h-px bg-gradient-to-r from-transparent via-gold to-transparent my-16 opacity-70;
+  border-color: var(--gold);
 }
 
 /* ------------------------------------------------------
-   CARDS – Global Card Style
+   DIVIDER (Premium)
+------------------------------------------------------ */
+.section-divider {
+  @apply w-full h-px my-16 opacity-70;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+/* ------------------------------------------------------
+   CARDS – global
 ------------------------------------------------------ */
 
 .card {
   @apply bg-white/70 backdrop-blur border border-[#ddd] rounded-2xl 
-         p-6 shadow-sm hover:shadow-xl transition-all duration-300;
+         p-6 shadow-sm transition-all duration-300;
+}
+
+.card:hover {
+  @apply shadow-xl;
 }
 
 /* ------------------------------------------------------
-   INPUTS – Für zukünftiges Reservierungsformular
+   INPUTS
 ------------------------------------------------------ */
 
 .input {
-  @apply w-full px-4 py-3 border border-[#ddd] rounded-lg focus:outline-none
-         focus:ring-2 focus:ring-gold;
+  @apply w-full px-4 py-3 border border-[#ddd] rounded-lg focus:outline-none focus:ring-2;
+  --tw-ring-color: var(--gold);
 }
-
