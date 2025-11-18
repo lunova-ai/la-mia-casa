@@ -6,8 +6,43 @@ import MobileMenu from "./components/MobileMenu";
 import WhatsAppButton from "./components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "La mia Casa – Deine Bar, Deine Küche, Dein Wohnzimmer",
-  description: "Mediterrane & steirische Küche im edlen Ambiente – Holzofenpizza, Pasta, Salate & Aperitivo in Hartberg.",
+  title: "La mia Casa – Ristorante, Bar & Pizzeria in Hartberg",
+  description:
+    "La mia Casa – Holzofenpizza, Pasta, Salate & Aperitivo am Hauptplatz Hartberg. Italienisch-steirische Küche, gemütliche Atmosphäre & herzliche Gastgeber.",
+  keywords: [
+    "Pizzeria Hartberg",
+    "Restaurant Hartberg",
+    "Holzofenpizza Hartberg",
+    "La mia Casa",
+    "Ristorante Hartberg",
+    "Pizza Hartberg",
+    "Mediterrane Küche Hartberg",
+    "Steirische Küche Hartberg",
+    "Beste Pizza Hartberg",
+    "Aperitivo Hartberg",
+    "Essen gehen Hartberg"
+  ],
+  metadataBase: new URL("https://www.la-mia-casa.app"),
+  alternates: {
+    canonical: "https://www.la-mia-casa.app",
+  },
+  openGraph: {
+    title: "La mia Casa – Dein Ristorante in Hartberg",
+    description:
+      "Mediterran, steirisch & herzlich – Holzofenpizza, Pasta, Aperitivo & Events im Herzen von Hartberg.",
+    url: "https://www.la-mia-casa.app",
+    siteName: "La mia Casa Hartberg",
+    locale: "de_AT",
+    type: "website",
+    images: [
+      {
+        url: "https://www.la-mia-casa.app/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "La mia Casa Hartberg – Ristorante, Bar & Pizzeria",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -16,16 +51,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen flex flex-col bg-cream text-dark">
 
         {/* HEADER */}
-        <header className="w-full py-4 bg-white/70 backdrop-blur-md border-b border-black/10 sticky top-0 z-50 shadow-sm">
+        <header className="w-full py-5 bg-white/80 backdrop-blur-md border-b border-black/10 sticky top-0 z-50 shadow-sm">
           <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
 
             {/* TEXT LOGO */}
-            <Link href="/" className="font-logo text-3xl tracking-widest text-dark">
+            <Link
+              href="/"
+              className="font-logo text-3xl tracking-widest text-dark"
+              aria-label="La mia Casa – Startseite"
+            >
               La mia Casa
             </Link>
 
             {/* DESKTOP NAVIGATION */}
-            <nav className="hidden md:flex gap-8 text-sm text-[#444] tracking-wide">
+            <nav
+              className="hidden md:flex gap-8 text-sm font-medium text-[#444] tracking-wide"
+              aria-label="Hauptnavigation"
+            >
               <Link href="/speisekarte" className="hover:text-gold transition">Küche</Link>
               <Link href="/events" className="hover:text-gold transition">Events</Link>
               <Link href="/galerie" className="hover:text-gold transition">Galerie</Link>
@@ -42,10 +84,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MobileMenu />
 
         {/* CONTENT */}
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          {children}
+        </main>
 
         {/* WHATSAPP BUTTON */}
-        <WhatsAppButton />
+        <WhatsAppButton phone="+436449238843" />
 
         {/* FOOTER */}
         <footer className="mt-20 py-12 bg-dark text-cream">
@@ -62,7 +106,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             <div className="mt-6 md:mt-0">
-              <a href="tel:+43XXXXXXXX" className="btn-gold inline-block">
+              <a
+                href="tel:+436449238843"
+                className="btn-gold inline-block"
+              >
                 Jetzt anrufen
               </a>
             </div>
@@ -72,8 +119,47 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             © {new Date().getFullYear()} La mia Casa – Crafted with style by Moni the Brain
           </div>
         </footer>
+
+        {/* STRUCTURED DATA – GOOGLE LOCAL BUSINESS */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              name: "La mia Casa",
+              image: "https://www.la-mia-casa.app/og-image.jpg",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Hauptplatz 5",
+                addressLocality: "Hartberg",
+                postalCode: "8230",
+                addressCountry: "AT",
+              },
+              telephone: "+436449238843",
+              servesCuisine: ["Italian", "Mediterranean", "Steirisch", "Pizza"],
+              priceRange: "$$",
+              url: "https://www.la-mia-casa.app",
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday","Wednesday","Thursday","Friday","Saturday"],
+                  opens: "16:00",
+                  closes: "24:00",
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: "Sunday",
+                  opens: "10:30",
+                  closes: "19:00",
+                },
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );
 }
+
 

@@ -18,14 +18,14 @@ export default function Page() {
               <img
                 src="/la-mia-casa-logo.jpg"
                 alt="La mia Casa Logo"
-                className="w-64 md:w-80 mb-6"
+                className="w-56 md:w-72 mb-6 drop-shadow-md"
               />
 
               <span className="inline-block text-xs tracking-[0.35em] uppercase text-gold mb-4">
                 Neu am Hauptplatz · Hartberg
               </span>
 
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-dark mb-4">
+              <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-dark mb-4 leading-snug">
                 Deine Bar, deine Küche, dein Wohnzimmer.
               </h1>
 
@@ -78,12 +78,12 @@ export default function Page() {
                 <p className="font-semibold text-dark">Reservierung</p>
                 <p>
                   Telefon & WhatsApp:<br />
-                  <span className="font-semibold text-dark">+43 (0) XXX XXX XXXX</span>
+                  <span className="font-semibold text-dark">+43 644 923 8843</span>
                 </p>
               </div>
 
               <a
-                href="tel:+43XXXXXXXX"
+                href="tel:+436449238843"
                 className="mt-4 inline-flex items-center justify-center w-full px-4 py-3 rounded-xl bg-gold text-dark font-semibold hover:bg-[#c39645] transition text-sm"
               >
                 Jetzt anrufen
@@ -93,9 +93,10 @@ export default function Page() {
         </div>
       </section>
 
-      {/* USP-BAND – macht Tempo und bricht die „Wurst“ */}
+      {/* USP-BAND */}
       <section className="w-full bg-dark text-cream">
         <div className="max-w-6xl mx-auto px-6 py-10 grid gap-8 md:grid-cols-3 text-sm md:text-base">
+          
           <FadeIn>
             <div>
               <p className="text-xs tracking-[0.25em] uppercase text-gold mb-2">
@@ -127,14 +128,15 @@ export default function Page() {
               </p>
               <h3 className="font-semibold mb-1">Feiern & Veranstaltungen</h3>
               <p className="opacity-80">
-                Zweistöckiges Lokal mit ca. 60 Plätzen – perfekt für Firmenfeiern & Geburtstage.
+                Zweistöckiges Lokal – perfekt für Firmenfeiern, Geburtstage & Gruppen.
               </p>
             </div>
           </FadeIn>
+
         </div>
       </section>
 
-      {/* INTRO + ÖFFNUNGSZEITEN */}
+      {/* INTRO */}
       <section id="intro" className="max-w-6xl mx-auto px-6 py-20">
         <FadeIn>
           <p className="text-sm tracking-[0.25em] text-gold uppercase mb-4">
@@ -166,7 +168,7 @@ export default function Page() {
         </FadeIn>
       </section>
 
-      {/* FEATURES – KÜCHE */}
+      {/* FEATURES */}
       <section
         id="kueche"
         className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8"
@@ -200,9 +202,10 @@ export default function Page() {
         </FadeIn>
       </section>
 
-      {/* STORY + AUTO-FOTO */}
+      {/* STORY */}
       <section id="events" className="w-full bg-[#f3eee8] border-y border-[#e0dbd4]">
         <div className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+          
           <FadeIn>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img
@@ -218,14 +221,16 @@ export default function Page() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 La mia Casa – mit Herz & Erfahrung
               </h2>
+
               <p className="text-lg text-[#444] leading-relaxed mb-4">
-                Die Gastgeberin bringt viel Erfahrung aus Salzburg, Ischgl, Grafendorf und
+                Die Gastgeberin bringt Erfahrung aus Salzburg, Ischgl, Grafendorf und
                 Stambach mit – kombiniert mit echter italienischer Herzlichkeit.
               </p>
+
               <p className="text-lg text-[#444] leading-relaxed">
-                Ob Date, Familienfeier oder After-Work: Wir machen aus jedem Abend etwas
-                Besonderes.
+                Ob Date, Familienfeier oder After-Work: Wir machen jeden Abend besonders.
               </p>
+
               <a
                 href="/team"
                 className="inline-block mt-6 text-gold hover:text-dark font-semibold text-lg"
@@ -234,6 +239,7 @@ export default function Page() {
               </a>
             </div>
           </FadeIn>
+
         </div>
       </section>
 
@@ -248,8 +254,9 @@ export default function Page() {
               <p className="text-lg text-[#555]">
                 Reserviere deinen Tisch telefonisch oder per WhatsApp – wir freuen uns auf dich.
               </p>
+
               <p className="mt-3 text-lg font-semibold text-dark">
-                +43 (0) XXX XXX XXXX
+                +43 644 923 8843
               </p>
             </div>
 
@@ -278,4 +285,5 @@ function Feature({ title, text }: { title: string; text: string }) {
     </div>
   );
 }
+
 

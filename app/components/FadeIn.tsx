@@ -2,31 +2,50 @@
 
 import { useEffect, useRef } from "react";
 
-export default function FadeIn({
-  children,
-  delay = 0,
-}: {
+interface FadeInProps {
   children: React.ReactNode;
-  delay?: number;
-}) {
+  delay?: number; // ms
+}
+
+export default function FadeIn({ children, delay = 0 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = ref.current!;
+    const el = ref.current;
+    if (!el) return;
+
+    // Übergangsverzögerung setzen
     el.style.transitionDelay = `${delay}ms`;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           el.classList.add("visible");
-          observer.disconnect();
+          observer.unobserve(el);
         }
       },
-      { threshold: 0.2 }
+      {
+        root: null,
+        threshold: 0.15, // etwas früher → smooth & flüssig
+      }
     );
 
     observer.observe(el);
+
+    return () => observer.disconnect();
   }, [delay]);
 
-  return <div ref={ref} className="fade-in opacity-0 translate-y-6">{children}</div>;
+  return (
+    <div
+      ref={ref}
+      className="
+        fade-in 
+        opacity-0 
+        translate-y-6 
+        will-change-transform will-change-opacity
+      "
+    >
+      {children}
+    </div>
+  );
 }

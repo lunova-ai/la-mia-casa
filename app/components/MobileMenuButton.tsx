@@ -1,14 +1,20 @@
 "use client";
 
 export default function MobileMenuButton() {
+  const openMenu = () => {
+    window.dispatchEvent(new CustomEvent("mobile-menu:open"));
+  };
+
   return (
     <button
-      className="md:hidden text-3xl text-dark hover:text-gold transition"
-      onClick={() => {
-        const event = new CustomEvent("open-mobile-menu");
-        window.dispatchEvent(event);
-      }}
       aria-label="Menü öffnen"
+      onClick={openMenu}
+      className="
+        md:hidden text-4xl text-dark 
+        hover:text-gold transition-colors 
+        active:scale-90 
+        touch-manipulation
+      "
     >
       ☰
     </button>

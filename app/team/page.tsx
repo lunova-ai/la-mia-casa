@@ -2,68 +2,81 @@ import FadeIn from "../components/FadeIn";
 
 export default function Team() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-20">
+    <div className="max-w-6xl mx-auto px-6 py-20">
 
-      {/* Intro */}
+      {/* INTRO */}
       <FadeIn>
-        <h1 className="text-5xl font-bold mb-4">Das Team</h1>
-        <p className="text-lg text-[#555] mb-12 max-w-2xl">
-          Herz, Erfahrung und italienische Gastfreundschaft – das macht La mia Casa besonders.
+        <h1 className="text-5xl font-logo font-bold mb-4 text-dark">
+          Das Team
+        </h1>
+        <p className="text-lg text-[#555] mb-12 max-w-2xl leading-relaxed">
+          Herz, Erfahrung & italienische Gastfreundschaft – das ist La mia Casa.
+          Ein Ort, an dem Gäste zu Freunden werden.
         </p>
       </FadeIn>
 
-      {/* CHEFIN PORTRAIT */}
-      <section className="grid md:grid-cols-2 gap-12 items-center">
+      {/* CHEFIN – Highlight Section */}
+      <section className="grid md:grid-cols-2 gap-14 items-center">
 
-        {/* FOTO – später echtes Bild */}
+        {/* FOTO (wird später ersetzt) */}
         <FadeIn>
-          <div className="rounded-2xl overflow-hidden shadow-lg bg-white/40 backdrop-blur">
+          <div className="rounded-3xl overflow-hidden shadow-2xl bg-white/60 backdrop-blur-sm border border-[#e8e2d9]">
             <img
               src="/la-mia-casa-auto.jpg"
-              alt="Die Chefin"
+              alt="Chefin La mia Casa"
               className="w-full h-full object-cover"
             />
           </div>
         </FadeIn>
 
-        {/* TEXT */}
+        {/* TEXT BLOCK */}
         <FadeIn>
-          <div>
-            <h2 className="text-3xl font-semibold mb-3">Die Chefin</h2>
+          <div className="space-y-6">
+
+            <h2 className="text-3xl md:text-4xl font-bold text-dark">
+              Die Gastgeberin
+            </h2>
+
             <p className="text-lg text-[#444] leading-relaxed">
-              La mia Casa steht unter der Leitung einer Gastgeberin, die seit vielen Jahren in
-              der Gastronomie zuhause ist – mit Stationen in Salzburg, Ischgl, Grafendorf und Stambach.
-              Erfahrung, Leidenschaft und Herzlichkeit prägen jeden Tag im Restaurant.
+              La mia Casa wird mit Leidenschaft von einer Gastgeberin geführt,
+              die seit vielen Jahren in der Gastronomie zuhause ist – mit Stationen
+              in Salzburg, Ischgl, Grafendorf und Stambach.
+              Erfahrung, Herzlichkeit und ein Gefühl für gute Atmosphäre prägen jeden Tag im Lokal.
             </p>
 
-            <p className="mt-6 text-[#666] leading-relaxed">
-              <em>
-                „Gastronomie ist kein Beruf – es ist ein Gefühl.  
-                Ein Zuhause für Gäste zu schaffen, ist mein Anspruch und meine Leidenschaft.“
-              </em>
-            </p>
+            <blockquote className="text-[#666] italic border-l-4 border-gold pl-4">
+              „Gastronomie ist kein Beruf – es ist ein Gefühl.  
+              Ein Zuhause für Gäste zu schaffen, ist meine Leidenschaft.“
+            </blockquote>
 
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-gold to-transparent my-8 opacity-70"></div>
-
-            <p className="text-lg text-[#555]">
-              Die Kombination aus mediterraner Küche, steirischer Herzlichkeit und modernem Ambiente
-              entsteht durch ein Team, das zusammenhält – und durch eine Chefin, die weiß,
-              was einen unvergesslichen Abend ausmacht.
+            <p className="text-lg text-[#555] leading-relaxed">
+              Mediterrane Küche, steirische Herzlichkeit und modernes Ambiente –
+              das alles entsteht durch ein Team, das zusammenarbeitet wie eine Familie.
             </p>
           </div>
         </FadeIn>
+
       </section>
 
-      {/* TEAM GRID – optional für später */}
+      {/* DIVIDER */}
+      <FadeIn delay={200}>
+        <div className="section-divider"></div>
+      </FadeIn>
+
+      {/* TEAM GRID (Future Expansion) */}
       <FadeIn>
-        <div className="mt-24">
-          <h2 className="text-3xl font-semibold mb-6">Unser Team</h2>
-          <p className="text-lg text-[#555] max-w-3xl mb-12">
-            Ob Küche, Bar oder Service – wir arbeiten Hand in Hand, damit sich jeder Gast
-            wie zuhause fühlt. Weitere Teamfotos folgen in Kürze.
+        <div className="mt-20">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-dark">
+            Unser Team
+          </h2>
+
+          <p className="text-lg text-[#555] max-w-3xl mb-12 leading-relaxed">
+            Ob Küche, Service oder Bar – unser Team sorgt jeden Tag dafür,
+            dass sich jeder Gast wie zuhause fühlt.  
+            Bald gibt es hier echte Teamfotos.
           </p>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 opacity-50">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 opacity-60">
             <TeamPlaceholder name="Service" />
             <TeamPlaceholder name="Küche" />
             <TeamPlaceholder name="Bar" />
@@ -76,12 +89,12 @@ export default function Team() {
 }
 
 
-/* TEAM CARD PLACEHOLDER */
+/* TEAM PLACEHOLDER CARD */
 function TeamPlaceholder({ name }: { name: string }) {
   return (
-    <div className="bg-white/60 backdrop-blur border border-[#ddd] rounded-2xl p-6 shadow-sm">
-      <div className="w-full h-32 bg-[#eee] rounded-lg mb-4"></div>
-      <p className="text-center text-lg font-medium text-[#555]">
+    <div className="bg-white/70 backdrop-blur-sm border border-[#e5e0d8] rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+      <div className="w-full h-32 bg-[#e9e5df] rounded-lg mb-4"></div>
+      <p className="text-center text-lg font-medium text-dark">
         {name}
       </p>
     </div>
