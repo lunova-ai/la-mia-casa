@@ -1,10 +1,15 @@
+
+
+
+
+
 "use client";
 
 import { useEffect, useState } from "react";
 import FadeIn from "./components/FadeIn";
 
 /* ------------------------------------------------------
-   COUNTDOWN HOOK (Perfekt & clean)
+   COUNTDOWN HOOK
 ------------------------------------------------------ */
 function useCountdown(targetDate: string) {
   const [timeLeft, setTimeLeft] = useState({
@@ -45,7 +50,6 @@ function useCountdown(targetDate: string) {
    STARTSEITE
 ------------------------------------------------------ */
 export default function Page() {
-
   const { days, hours, minutes, seconds } = useCountdown("2025-12-07T16:00:00");
 
   return (
@@ -59,20 +63,18 @@ export default function Page() {
         className="relative w-full min-h-[85vh] flex items-center border-b border-[#e1ddd8]
                    bg-gradient-to-b from-[#f9f6f2] to-[#ece8e2] overflow-hidden"
       >
-
         {/* Hintergrundbild */}
         <div className="absolute inset-0 bg-[url('/la-mia-casa-hero.jpg')] bg-cover bg-center opacity-10"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32
                         flex flex-col md:flex-row items-center gap-16 md:gap-20">
 
-          
           {/* LEFT CONTENT */}
           <FadeIn>
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
 
               {/* ------------------------------------------------------
-                 LUXUS OPENING BANNER (mit Prosecco)
+                 LUXUS OPENING BANNER – PROSECCO
               ------------------------------------------------------ */}
               <div className="
                 relative mb-8 px-8 py-4 rounded-full 
@@ -98,10 +100,9 @@ export default function Page() {
               </div>
 
               {/* ------------------------------------------------------
-                 COUNTDOWN – Edle Version
+                 COUNTDOWN
               ------------------------------------------------------ */}
               <div className="flex gap-4 mb-12">
-
                 {[
                   { label: "Tage", value: days },
                   { label: "Std", value: hours },
@@ -117,21 +118,15 @@ export default function Page() {
                       border border-[#e5e1da] min-w-[82px]
                     "
                   >
-                    {/* Zahl */}
                     <span className="text-4xl md:text-5xl font-bold text-dark leading-none count-flip">
                       {unit.value}
                     </span>
-
-                    {/* gold line */}
                     <span className="block w-7 h-[3px] bg-gradient-to-r from-gold to-gold/40 rounded-full mt-2"></span>
-
-                    {/* Label */}
                     <span className="text-xs tracking-wide text-[#777] uppercase">
                       {unit.label}
                     </span>
                   </div>
                 ))}
-
               </div>
 
               {/* LOGO */}
@@ -141,12 +136,10 @@ export default function Page() {
                 className="w-56 md:w-72 mb-6 drop-shadow-md"
               />
 
-              {/* SUBTEXT */}
               <span className="inline-block text-xs tracking-[0.35em] uppercase text-gold mb-4">
                 Neu am Hauptplatz · Hartberg
               </span>
 
-              {/* CLAIM */}
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-dark mb-4 leading-snug">
                 Deine Bar, deine Küche,<br />dein Wohnzimmer.
               </h1>
@@ -156,7 +149,6 @@ export default function Page() {
                 Holzofenpizza & Pasta, gemütliche Abende mit Freunden.
               </p>
 
-              {/* BUTTONS */}
               <div className="mt-10 flex flex-wrap gap-4">
                 <a href="/speisekarte" className="btn-gold text-base md:text-lg">
                   Speisekarte ansehen
@@ -170,7 +162,7 @@ export default function Page() {
 
 
           {/* ------------------------------------------------------
-             RIGHT INFO CARD
+             RIGHT INFO CARD – FIXED!
           ------------------------------------------------------ */}
           <FadeIn>
             <aside
@@ -199,13 +191,22 @@ export default function Page() {
                 <p className="font-semibold text-dark">Reservierung</p>
                 <p>
                   Telefon & WhatsApp:<br />
-                  <span className="font-semibold text-dark">+43 644 923 8843</span>
+                  <span className="font-semibold text-dark">
+                    +43 644 923 8843
+                  </span>
                 </p>
               </div>
 
-              <a href="tel:+436449238843" className="btn-gold w-full text-sm text-center">
-                Jetzt anrufen
-              </a>
+              {/* FIXED BUTTON AREA */}
+              <div className="pt-2">
+                <a
+                  href="tel:+436449238843"
+                  className="btn-gold w-full text-sm text-center"
+                >
+                  Jetzt anrufen
+                </a>
+              </div>
+
             </aside>
           </FadeIn>
 
@@ -213,10 +214,8 @@ export default function Page() {
       </section>
 
 
-
-
       {/* ------------------------------------------------------
-         USP – 3 Säulen
+         USP
       ------------------------------------------------------ */}
       <section className="w-full bg-dark text-cream">
         <div className="max-w-6xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-3 text-sm md:text-base">
@@ -241,14 +240,12 @@ export default function Page() {
             <div>
               <p className="text-xs tracking-[0.25em] uppercase text-gold mb-2">Events</p>
               <h3 className="font-semibold mb-1">Feiern & Veranstaltungen</h3>
-              <p className="opacity-80">Perfekt für Firmenfeiern & private Anlässe.</p>
+              <p className="opacity-80">Für Firmenfeiern & private Anlässe.</p>
             </div>
           </FadeIn>
 
         </div>
       </section>
-
-
 
 
       {/* ------------------------------------------------------
@@ -274,8 +271,6 @@ export default function Page() {
       </section>
 
 
-
-
       {/* ------------------------------------------------------
          FEATURES
       ------------------------------------------------------ */}
@@ -283,13 +278,11 @@ export default function Page() {
         id="kueche"
         className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8"
       >
-        <FadeIn><Feature title="Pizza aus dem Holzofen" text="Knusprig, heiß & traditionell italienisch." /></FadeIn>
+        <FadeIn><Feature title="Pizza aus dem Holzofen" text="Knusprig & traditionell italienisch." /></FadeIn>
         <FadeIn><Feature title="Frische Pasta" text="Mediterrane Nudelgerichte – cremig & würzig." /></FadeIn>
         <FadeIn><Feature title="Salate & Antipasti" text="Knackig, frisch & hausgemacht." /></FadeIn>
         <FadeIn><Feature title="Mehr Genuss…" text="Desserts, Wochen-Specials & Überraschungen." /></FadeIn>
       </section>
-
-
 
 
       {/* ------------------------------------------------------
@@ -300,7 +293,7 @@ export default function Page() {
 
           <FadeIn>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <img src="/la-mia-casa-auto.jpg" alt="Fiat 500 vor La mia Casa" className="w-full object-cover" />
+              <img src="/la-mia-casa-auto.jpg" alt="" className="w-full object-cover" />
             </div>
           </FadeIn>
 
@@ -323,8 +316,6 @@ export default function Page() {
 
         </div>
       </section>
-
-
 
 
       {/* ------------------------------------------------------
@@ -368,10 +359,6 @@ function Feature({ title, text }: { title: string; text: string }) {
     </div>
   );
 }
-
-
-
-
 
 
 
