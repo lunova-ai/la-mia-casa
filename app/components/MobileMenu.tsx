@@ -6,10 +6,10 @@ import Link from "next/link";
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
 
-  /* ▸ ESC schließen + Body Scroll Lock */
+  // ESC Close + Scroll Lock
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden"; // scroll lock
+      document.body.style.overflow = "hidden";
       const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
       window.addEventListener("keydown", onKey);
       return () => {
@@ -21,11 +21,11 @@ export default function MobileMenu() {
 
   return (
     <>
-      {/* MOBILE MENU BUTTON */}
+      {/* OPEN BUTTON */}
       <button
         className="
-          md:hidden text-4xl text-dark fixed top-4 right-4 z-50 
-          transition hover:text-gold active:scale-95
+          md:hidden text-[var(--dark)] text-4xl fixed top-4 right-4 z-50 
+          transition active:scale-95
         "
         aria-label="Menü öffnen"
         onClick={() => setOpen(true)}
@@ -37,68 +37,77 @@ export default function MobileMenu() {
       <div
         aria-hidden={!open}
         className={`
-          fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 z-40 
+          fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 z-40 
           ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
         `}
         onClick={() => setOpen(false)}
       />
 
-      {/* SLIDE-IN MENU */}
+      {/* MENU PANEL */}
       <aside
         className={`
-          fixed top-0 right-0 w-3/4 max-w-sm h-full 
-          bg-white/95 backdrop-blur-xl shadow-2xl z-50 p-8 flex flex-col 
+          fixed top-0 right-0 h-full w-3/4 max-w-sm z-50
+          bg-white/95 backdrop-blur-xl shadow-xl p-8
           transform transition-transform duration-500 will-change-transform
           ${open ? "translate-x-0" : "translate-x-full"}
         `}
         role="dialog"
         aria-modal="true"
       >
-        {/* CLOSE BUTTON */}
-        <button
-          className="
-            text-4xl text-dark self-end mb-10 
-            hover:text-gold transition active:scale-90
-          "
-          aria-label="Menü schließen"
-          onClick={() => setOpen(false)}
-        >
-          ✕
-        </button>
+        {/* HEADER */}
+        <div className="flex items-center justify-between mb-12">
+          <span className="font-cinzel text-2xl tracking-wide text-[var(--dark)]">
+            La mia Casa
+          </span>
+
+          {/* CLOSE BUTTON */}
+          <button
+            aria-label="Menü schließen"
+            onClick={() => setOpen(false)}
+            className="text-3xl text-[var(--dark)] active:scale-90"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* LINE */}
+        <div className="w-full h-[1px] bg-[rgba(237,146,97,0.35)] mb-10"></div>
 
         {/* NAVIGATION */}
-        <nav className="flex flex-col gap-8 text-2xl font-light">
-          <MobileLink href="/speisekarte" label="Küche" close={() => setOpen(false)} />
-          <MobileLink href="/events" label="Events" close={() => setOpen(false)} />
-          <MobileLink href="/galerie" label="Galerie" close={() => setOpen(false)} />
-          <MobileLink href="/team" label="Team" close={() => setOpen(false)} />
-          <MobileLink href="/kontakt" label="Kontakt" close={() => setOpen(false)} />
+        <nav className="flex flex-col gap-7 text-xl font-medium text-[var(--dark)]">
+          <MobileLink href="/speisekarte" close={() => setOpen(false)}>Küche</MobileLink>
+          <MobileLink href="/team" close={() => setOpen(false)}>Team</MobileLink>
+          <MobileLink href="/kontakt" close={() => setOpen(false)}>Kontakt</MobileLink>
         </nav>
       </aside>
     </>
   );
 }
 
-/* Reusable Nav Link with nicer UX */
+/* MOBILE LINK – edle Unterstreichung */
 function MobileLink({
   href,
-  label,
+  children,
   close,
 }: {
   href: string;
-  label: string;
+  children: string;
   close: () => void;
 }) {
   return (
     <Link
       href={href}
-      className="
-        hover:text-gold transition 
-        focus:outline-none focus:text-gold
-      "
       onClick={close}
+      className="
+        relative pb-1
+        after:content-[''] after:absolute after:left-0 after:bottom-0 
+        after:h-[2px] after:w-0 after:bg-[var(--brand)]
+        after:transition-all after:duration-300
+        hover:after:w-full
+      "
     >
-      {label}
+      {children}
     </Link>
   );
 }
+

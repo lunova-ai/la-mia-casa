@@ -1,7 +1,9 @@
 /* ------------------------------------------------------
-   GOOGLE FONT – CLS-sicher
+   GOOGLE FONTS – CLS-sicher
 ------------------------------------------------------ */
 @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 /* ------------------------------------------------------
    TAILWIND
@@ -11,203 +13,134 @@
 @tailwind utilities;
 
 /* ------------------------------------------------------
-   ROOT VARIABLES (Brand Colors)
+   ROOT VARIABLES – Brand Colors
 ------------------------------------------------------ */
 :root {
-  --gold: #d4a857;
-  --gold-hover: #c39645;
-  --dark: #1a1a1a;
-  --cream: #faf8f6;
+  --brand: #ed9261;        /* Hauptfarbe (Lokal-Wandfarbe) */
+  --brand-dark: #d87842;   /* dunklere Variante */
+  --dark: #1a1a1a;         /* Text */
+  --cream: #faf8f6;        /* Hintergrund */
+  --white: #ffffff;
 }
 
 /* ------------------------------------------------------
-   BRAND FONT (Logo)
+   BRAND FONTS
 ------------------------------------------------------ */
 .font-logo {
   font-family: 'Allura', cursive;
-  font-weight: 400;
   letter-spacing: 0.04em;
-  font-display: swap;
+  font-weight: 400;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.5px;
 }
 
 /* ------------------------------------------------------
    GLOBAL BASE / TYPOGRAPHY
 ------------------------------------------------------ */
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-[#faf8f6] text-[#1a1a1a] antialiased;
+  font-family: 'Inter', sans-serif;
+  @apply bg-[var(--cream)] text-[var(--dark)] antialiased;
   font-feature-settings: "liga", "kern";
 }
 
-/* Headings – ruhig, elegant */
 h1, h2, h3 {
-  @apply tracking-tight font-semibold text-[#1a1a1a];
+  @apply tracking-tight font-semibold;
   line-height: 1.15;
+  color: var(--dark);
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-semibold mb-6 text-[#1f1f1f];
+  @apply text-3xl md:text-4xl font-semibold mb-6;
+  color: var(--dark);
 }
 
 .subtext {
-  @apply text-lg text-[#6f6f6f] leading-relaxed;
+  @apply text-lg leading-relaxed;
+  color: #6f6f6f;
 }
 
 /* ------------------------------------------------------
-   FADE-IN ANIMATION
+   NAVIGATION – Underline Animation
 ------------------------------------------------------ */
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--brand);
+  transition: width 260ms ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 /* ------------------------------------------------------
-   COUNTDOWN – 3D FLIP ANIMATION (Premium)
+   HEADER EFFECTS
 ------------------------------------------------------ */
-
-.count-wrapper {
-  perspective: 1200px;
+.header-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(237, 146, 97, 0.05) 0%,
+    rgba(255, 255, 255, 0.9) 40%,
+    rgba(237, 146, 97, 0.05) 100%
+  );
 }
 
-.count-flip {
-  display: inline-block;
-  animation: countFlip 0.6s ease;
-  transform-origin: center top;
-  backface-visibility: hidden;
-}
-
-@keyframes countFlip {
-  0% {
-    transform: rotateX(85deg);
-    opacity: 0;
-  }
-  60% {
-    transform: rotateX(-15deg);
-    opacity: 1;
-  }
-  100% {
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
+.header-line {
+  box-shadow: 0 1px 0 rgba(237, 146, 97, 0.4);
 }
 
 /* ------------------------------------------------------
-   OPENING BANNER ANIMATIONS
+   BUTTONS – Brand Color
 ------------------------------------------------------ */
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  50% { transform: translateX(200%); }
-  100% { transform: translateX(200%); }
+.btn-brand {
+  @apply px-6 py-3 rounded-lg font-semibold shadow-md transition duration-300 text-white;
+  background-color: var(--brand);
 }
 
-.animate-shimmer {
-  animation: shimmer 3s infinite ease-in-out;
-}
-
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.25); }
-}
-
-.animate-pulseGlow {
-  animation: pulseGlow 1.8s infinite ease-in-out;
-}
-
-@keyframes fadeInBanner {
-  0% { opacity: 0; transform: translateY(8px); }
-  100% { opacity: 1; transform: translateY(0px); }
-}
-
-.animate-fadeIn {
-  animation: fadeInBanner 1s ease-out forwards;
-}
-
-/* ------------------------------------------------------
-   BUTTONS – Gold, Outline, Light
------------------------------------------------------- */
-
-.btn-gold {
-  @apply px-6 py-3 rounded-lg text-dark font-semibold shadow-md transition duration-300;
-  background-color: var(--gold);
-}
-
-.btn-gold:hover {
-  background-color: var(--gold-hover);
+.btn-brand:hover {
+  background-color: var(--brand-dark);
   @apply shadow-lg;
 }
 
 .btn-outline {
-  @apply px-6 py-3 rounded-lg border border-dark text-dark font-semibold transition duration-300;
+  @apply px-6 py-3 rounded-lg border text-[var(--dark)] font-medium transition duration-300;
+  border-color: var(--dark);
 }
 
 .btn-outline:hover {
-  @apply bg-dark text-cream;
+  background-color: var(--dark);
+  color: var(--cream);
 }
 
 .btn-light {
-  @apply px-6 py-3 rounded-lg bg-white text-dark font-medium shadow-sm transition duration-300;
+  @apply px-6 py-3 rounded-lg bg-white text-[var(--dark)] font-medium shadow-sm transition duration-300;
 }
 
 .btn-light:hover {
-  @apply bg-[#f3f3f3];
+  background-color: #f3f3f3;
 }
 
 /* ------------------------------------------------------
-   BRAND COLOR HELPERS
+   CARDS
 ------------------------------------------------------ */
-
-.text-gold {
-  color: var(--gold);
-}
-
-.bg-gold {
-  background-color: var(--gold);
-}
-
-.bg-cream {
-  background-color: var(--cream);
-}
-
-.bg-dark {
-  background-color: var(--dark);
-}
-
-.border-gold {
-  border-color: var(--gold);
-}
-
-/* ------------------------------------------------------
-   DIVIDER (Premium)
------------------------------------------------------- */
-.section-divider {
-  @apply w-full h-px my-16 opacity-70;
-  background-image: linear-gradient(
-    to right,
-    transparent,
-    var(--gold),
-    transparent
-  );
-}
-
-/* ------------------------------------------------------
-   CARDS – global
------------------------------------------------------- */
-
 .card {
-  @apply bg-white/70 backdrop-blur border border-[#ddd] rounded-2xl 
-         p-6 shadow-sm transition-all duration-300;
+  @apply bg-white/70 backdrop-blur border border-[#ddd] rounded-2xl p-6 shadow-sm transition-all duration-300;
 }
 
 .card:hover {
@@ -217,8 +150,15 @@ h1, h2, h3 {
 /* ------------------------------------------------------
    INPUTS
 ------------------------------------------------------ */
-
 .input {
-  @apply w-full px-4 py-3 border border-[#ddd] rounded-lg focus:outline-none focus:ring-2;
-  --tw-ring-color: var(--gold);
+  @apply w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2;
+  border-color: #ddd;
+  --tw-ring-color: var(--brand);
+}
+/* --- LOGO – Cinzel Variant (feiner & kompakter) --- */
+.font-logo {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;               /* leichter, eleganter */
+  letter-spacing: 0.03em;         /* feiner */
+  text-transform: none;           /* natürlicher Look */
 }

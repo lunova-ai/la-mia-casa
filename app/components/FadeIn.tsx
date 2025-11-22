@@ -2,50 +2,45 @@
 
 import { useEffect, useRef } from "react";
 
-interface FadeInProps {
-  children: React.ReactNode;
-  delay?: number; // ms
-}
-
-export default function FadeIn({ children, delay = 0 }: FadeInProps) {
+export default function FadeIn({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const node = ref.current;
+    if (!node) return;
 
-    // Übergangsverzögerung setzen
-    el.style.transitionDelay = `${delay}ms`;
+    // Direkt sichtbar machen, falls IntersectionObserver nicht unterstützt wird
+    node.style.opacity = "1";
+    node.style.transform = "translateY(0px)";
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("visible");
-          observer.unobserve(el);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            node.style.opacity = "1";
+            node.style.transform = "translateY(0px)";
+          }
+        });
       },
-      {
-        root: null,
-        threshold: 0.15, // etwas früher → smooth & flüssig
-      }
+      { threshold: 0.1 }
     );
 
-    observer.observe(el);
+    observer.observe(node);
 
     return () => observer.disconnect();
-  }, [delay]);
+  }, []);
 
   return (
     <div
       ref={ref}
-      className="
-        fade-in 
-        opacity-0 
-        translate-y-6 
-        will-change-transform will-change-opacity
-      "
+      style={{
+        opacity: 0,
+        transform: "translateY(12px)",
+        transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
     >
       {children}
     </div>
   );
 }
+

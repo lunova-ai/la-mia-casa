@@ -1,102 +1,144 @@
+"use client";
+
 import FadeIn from "../components/FadeIn";
 
 export default function Team() {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-20">
+    <div className="max-w-6xl mx-auto px-6 py-20 space-y-24">
 
-      {/* INTRO */}
+      {/* ------------------------------------------------------
+         INTRO — CINZEL HEADER + ZITAT
+      ------------------------------------------------------ */}
       <FadeIn>
-        <h1 className="text-5xl font-logo font-bold mb-4 text-dark">
-          Das Team
-        </h1>
-        <p className="text-lg text-[#555] mb-12 max-w-2xl leading-relaxed">
-          Herz, Erfahrung & italienische Gastfreundschaft – das ist La mia Casa.
-          Ein Ort, an dem Gäste zu Freunden werden.
-        </p>
-      </FadeIn>
-
-      {/* CHEFIN – Highlight Section */}
-      <section className="grid md:grid-cols-2 gap-14 items-center">
-
-        {/* FOTO (wird später ersetzt) */}
-        <FadeIn>
-          <div className="rounded-3xl overflow-hidden shadow-2xl bg-white/60 backdrop-blur-sm border border-[#e8e2d9]">
-            <img
-              src="/la-mia-casa-auto.jpg"
-              alt="Chefin La mia Casa"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </FadeIn>
-
-        {/* TEXT BLOCK */}
-        <FadeIn>
-          <div className="space-y-6">
-
-            <h2 className="text-3xl md:text-4xl font-bold text-dark">
-              Die Gastgeberin
-            </h2>
-
-            <p className="text-lg text-[#444] leading-relaxed">
-              La mia Casa wird mit Leidenschaft von einer Gastgeberin geführt,
-              die seit vielen Jahren in der Gastronomie zuhause ist – mit Stationen
-              in Salzburg, Ischgl, Grafendorf und Stambach.
-              Erfahrung, Herzlichkeit und ein Gefühl für gute Atmosphäre prägen jeden Tag im Lokal.
-            </p>
-
-            <blockquote className="text-[#666] italic border-l-4 border-gold pl-4">
-              „Gastronomie ist kein Beruf – es ist ein Gefühl.  
-              Ein Zuhause für Gäste zu schaffen, ist meine Leidenschaft.“
-            </blockquote>
-
-            <p className="text-lg text-[#555] leading-relaxed">
-              Mediterrane Küche, steirische Herzlichkeit und modernes Ambiente –
-              das alles entsteht durch ein Team, das zusammenarbeitet wie eine Familie.
-            </p>
-          </div>
-        </FadeIn>
-
-      </section>
-
-      {/* DIVIDER */}
-      <FadeIn delay={200}>
-        <div className="section-divider"></div>
-      </FadeIn>
-
-      {/* TEAM GRID (Future Expansion) */}
-      <FadeIn>
-        <div className="mt-20">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-dark">
+        <div className="text-center mb-10">
+          <h1 className="text-4xl md:text-5xl font-cinzel text-[var(--dark)] mb-4">
             Unser Team
-          </h2>
+          </h1>
 
-          <p className="text-lg text-[#555] max-w-3xl mb-12 leading-relaxed">
-            Ob Küche, Service oder Bar – unser Team sorgt jeden Tag dafür,
-            dass sich jeder Gast wie zuhause fühlt.  
-            Bald gibt es hier echte Teamfotos.
+          <p className="text-lg text-[#555] max-w-xl mx-auto leading-relaxed">
+            Menschen mit Herz, Erfahrung und echter Gastfreundschaft.
+            La mia Casa lebt durch jene, die es jeden Tag mit Leben füllen.
           </p>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 opacity-60">
-            <TeamPlaceholder name="Service" />
-            <TeamPlaceholder name="Küche" />
-            <TeamPlaceholder name="Bar" />
-          </div>
+          <div className="w-24 h-[1px] bg-[rgba(237,146,97,0.35)] mx-auto mt-8"></div>
         </div>
       </FadeIn>
 
+
+
+      {/* ------------------------------------------------------
+         KARIN & REINHOLD — HOST SECTION
+      ------------------------------------------------------ */}
+      <FadeIn>
+        <section className="grid md:grid-cols-2 gap-16 items-start">
+
+          {/* LEFT — TEXT KARIN */}
+          <div className="space-y-8">
+            <h2 className="text-2xl md:text-3xl font-cinzel text-[var(--dark)]">
+              Karin – Gastgeberin aus Leidenschaft
+            </h2>
+
+            <p className="text-lg text-[#555] leading-relaxed">
+              Karin bringt jahrelange Erfahrung aus Salzburg, Ischgl, Grafendorf und weiteren Stationen mit. 
+              Sie ist eine Gastgeberin mit Herz – aufmerksam, warmherzig und immer mit echtem Interesse am Menschen.
+              Ihre Liebe zur Gastronomie spürt man in jeder Begegnung.
+            </p>
+
+            <blockquote className="italic text-[#666] border-l-2 border-[rgba(237,146,97,0.35)] pl-4">
+              „Gastronomie ist kein Beruf – es ist ein Gefühl. Ein Zuhause für Gäste zu schaffen, ist meine Leidenschaft.“
+            </blockquote>
+          </div>
+
+          {/* RIGHT — TEXT REINHOLD */}
+          <div className="space-y-8">
+            <h2 className="text-2xl md:text-3xl font-cinzel text-[var(--dark)]">
+              Reinhold – ruhig, herzlich & erfahren
+            </h2>
+
+            <p className="text-lg text-[#555] leading-relaxed">
+              Reinhold stammt aus Salzburg und ist seit vielen Jahren in der Steiermark zuhause. 
+              Er ist ein Mensch mit offenen Ohren und offenem Herzen – freundlich, bodenständig und authentisch.
+              Viele wissen es nicht: Er war Teilnehmer der Olympischen Spiele in Seoul – eine Erfahrung,
+              die seine Disziplin, Ruhe und Ausdauer geprägt hat.
+            </p>
+
+            <p className="text-lg text-[#555] leading-relaxed">
+              Im La mia Casa sorgt er für jene warme Atmosphäre, die den Unterschied macht.
+            </p>
+          </div>
+
+        </section>
+      </FadeIn>
+
+
+      {/* Divider */}
+      <FadeIn>
+        <div className="w-full h-[1px] bg-[rgba(237,146,97,0.35)]"></div>
+      </FadeIn>
+
+
+
+      {/* ------------------------------------------------------
+         DANIEL — KÜCHENCHEF
+      ------------------------------------------------------ */}
+      <FadeIn>
+        <section className="space-y-8 max-w-3xl">
+
+          <h2 className="text-2xl md:text-3xl font-cinzel text-[var(--dark)]">
+            Daniel – Küchenchef mit Gefühl
+          </h2>
+
+          <p className="text-lg text-[#555] leading-relaxed">
+            Daniel ist das kulinarische Herz des Hauses. Für ihn ist Kochen kein Prozess,
+            sondern Ausdruck von Emotion – mit jeder Zutat, jedem Handgriff, jedem Teller.
+          </p>
+
+          <blockquote className="italic text-[#555] border-l-2 border-[rgba(237,146,97,0.35)] pl-4 text-lg">
+            „Kochen bedeutet für mich, Emotionen auf den Teller zu bringen – und Gäste 
+            mit jedem Bissen ein Stück Italien spüren zu lassen.“ – Daniel
+          </blockquote>
+
+          <p className="text-lg text-[#555] leading-relaxed">
+            Seine Küche verbindet mediterrane Aromen mit steirischer Bodenständigkeit – 
+            ehrlich, handwerklich und voller Leidenschaft.
+          </p>
+
+        </section>
+      </FadeIn>
+
+
+      {/* Divider */}
+      <FadeIn>
+        <div className="w-full h-[1px] bg-[rgba(237,146,97,0.35)]"></div>
+      </FadeIn>
+
+
+
+      {/* ------------------------------------------------------
+         TEAM TEASER — REST DER CREW
+      ------------------------------------------------------ */}
+      <FadeIn>
+        <section className="space-y-8 text-center">
+
+          <h2 className="text-2xl md:text-3xl font-cinzel text-[var(--dark)]">
+            Gemeinsam für euch da
+          </h2>
+
+          <p className="text-lg text-[#555] max-w-2xl mx-auto leading-relaxed">
+            Hinter Karin, Reinhold und Daniel steht ein kleines, herzliches Team,
+            das jeden Tag dafür sorgt, dass sich Gäste wie zuhause fühlen.
+            Menschen, die mit Freude, Professionalität und Humor zusammenarbeiten –
+            und genau das spürt man auch.
+          </p>
+
+          <p className="text-sm text-[#888] italic">
+            Bald gibt es hier Fotos & Details zu unserem gesamten Team.
+          </p>
+
+        </section>
+      </FadeIn>
+
     </div>
   );
 }
 
-
-/* TEAM PLACEHOLDER CARD */
-function TeamPlaceholder({ name }: { name: string }) {
-  return (
-    <div className="bg-white/70 backdrop-blur-sm border border-[#e5e0d8] rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-      <div className="w-full h-32 bg-[#e9e5df] rounded-lg mb-4"></div>
-      <p className="text-center text-lg font-medium text-dark">
-        {name}
-      </p>
-    </div>
-  );
-}

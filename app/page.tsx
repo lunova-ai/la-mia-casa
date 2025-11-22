@@ -3,7 +3,7 @@
 import FadeIn from "./components/FadeIn";
 
 /* ------------------------------------------------------
-   STARTSEITE – ohne Countdown, mit Coming-Soon Banner
+   STARTSEITE – edel, typolastig, ohne Bilder/Banner
 ------------------------------------------------------ */
 export default function Page() {
   return (
@@ -15,84 +15,46 @@ export default function Page() {
       <section
         id="home"
         className="
-          relative w-full min-h-[85vh] flex items-center 
+          relative w-full min-h-[75vh] flex items-center 
           border-b border-[#e1ddd8]
-          bg-gradient-to-b from-[#f9f6f2] to-[#ece8e2]
-          overflow-hidden
+          bg-[var(--cream)]
         "
       >
-
-        {/* Hintergrundbild */}
-        <div className="absolute inset-0 bg-[url('/la-mia-casa-hero.jpg')] bg-cover bg-center opacity-10"></div>
-
         <div
           className="
-            relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32
-            flex flex-col md:flex-row items-center
-            gap-16 md:gap-20
+            relative max-w-6xl mx-auto px-6 py-20 md:py-28
+            grid gap-16 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]
+            items-start
           "
         >
-
-          {/* ------------------------------------------------------
-             LEFT CONTENT
-          ------------------------------------------------------ */}
+          {/* LEFT – Claim & Intro */}
           <FadeIn>
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <p className="text-xs tracking-[0.28em] uppercase text-[var(--brand)]">
+                  Hauptplatz 5 · 8230 Hartberg
+                </p>
 
-              {/* ------------------------------------------------------
-                 LUXUS COMING-SOON BANNER
-              ------------------------------------------------------ */}
-              <div
-                className="
-                  relative mb-8 px-10 py-4 rounded-full 
-                  bg-gradient-to-b from-[#2a2a2a] to-[#111]
-                  border border-[#3d3d3d]
-                  shadow-xl shadow-black/40
-                  text-cream tracking-[0.25em] uppercase
-                  text-sm md:text-base
-                  flex items-center gap-4
-                  backdrop-blur-xl select-none
-                "
-              >
-                <span className="text-gold text-lg animate-pulseGlow">✨</span>
-
-                <span className="font-semibold whitespace-nowrap">
-                  Bald für dich da – La mia Casa eröffnet in Kürze
-                </span>
-
-                <span className="text-gold text-lg animate-pulseGlow">✨</span>
-
-                {/* Shine */}
-                <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
-                  <div className="absolute inset-y-0 -left-full w-1/2 bg-white/10 blur-xl animate-shimmer"></div>
-                </div>
+                <h1 className="text-4xl md:text-5xl font-cinzel tracking-tight leading-tight text-[var(--dark)]">
+                  Deine Bar, deine Küche,<br />dein Wohnzimmer in Hartberg.
+                </h1>
               </div>
 
-              {/* ------------------------------------------------------
-                 LOGO
-              ------------------------------------------------------ */}
-              <img
-                src="/la-mia-casa-logo.jpg"
-                alt="La mia Casa Logo"
-                className="w-56 md:w-72 mb-6 drop-shadow-md"
-              />
-
-              <span className="inline-block text-xs tracking-[0.35em] uppercase text-gold mb-4">
-                Neu am Hauptplatz · Hartberg
-              </span>
-
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-dark mb-4 leading-snug">
-                Deine Bar, deine Küche,<br />dein Wohnzimmer.
-              </h1>
-
-              <p className="text-lg md:text-xl text-[#555] max-w-xl leading-relaxed">
+              <p className="text-lg md:text-xl text-[#555] leading-relaxed max-w-xl">
                 Mediterrane Küche trifft steirische Herzlichkeit – Aperitivo an der Bar,
                 Holzofenpizza & Pasta, gemütliche Abende mit Freunden.
               </p>
 
+              <div className="h-px w-24 bg-[var(--brand)] mt-2" />
+
+              <p className="text-sm md:text-base text-[#666] max-w-xl">
+                La mia Casa ist ein Ort zum Ankommen: ein Glas Wein, ein gutes Essen,
+                vertraute Gesichter – ein Wohnzimmer mitten am Hauptplatz.
+              </p>
+
               {/* CTA */}
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a href="/speisekarte" className="btn-gold text-base md:text-lg">
+              <div className="mt-6 flex flex-wrap gap-4">
+                <a href="/speisekarte" className="btn-brand text-base md:text-lg">
                   Speisekarte ansehen
                 </a>
                 <a href="/kontakt" className="btn-outline text-base md:text-lg">
@@ -102,114 +64,110 @@ export default function Page() {
             </div>
           </FadeIn>
 
-
-          {/* ------------------------------------------------------
-             RIGHT INFO CARD
-          ------------------------------------------------------ */}
+          {/* RIGHT – kompakte Faktenkarte */}
           <FadeIn>
             <aside
               className="
-                w-full md:w-80 lg:w-96 rounded-3xl bg-white/90 backdrop-blur-sm 
-                shadow-xl border border-[#e5e1da] px-7 py-8 space-y-5
+                w-full rounded-3xl bg-white/90 
+                border border-[#e5e1da] px-7 py-7 space-y-5
               "
             >
-              <h2 className="text-lg font-semibold tracking-tight text-dark">
-                Heute Lust auf La mia Casa?
+              <h2 className="text-lg font-cinzel tracking-tight text-[var(--dark)] mb-2">
+                La mia Casa auf einen Blick
               </h2>
 
-              <div className="text-sm text-[#555] space-y-1">
-                <p className="font-semibold text-dark">Adresse</p>
-                <p>Hauptplatz 5<br />8230 Hartberg</p>
+              <div className="space-y-4 text-sm text-[#555]">
+                <div>
+                  <p className="font-semibold text-[var(--dark)] mb-1">Adresse</p>
+                  <p>Hauptplatz 5<br />8230 Hartberg</p>
+                </div>
+
+                <div>
+                  <p className="font-semibold text-[var(--dark)] mb-1">Öffnungszeiten</p>
+                  <p>
+                    Mo, Mi, Do, Fr, Sa: 16–24 Uhr<br />
+                    Sonntag: 10:30–19 Uhr<br />
+                    Dienstag: Ruhetag
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold text-[var(--dark)] mb-1">Reservierung</p>
+                  <p>
+                    Telefon &amp; WhatsApp:<br />
+                    <span className="font-semibold text-[var(--dark)]">
+                      +43 644 923 8843
+                    </span>
+                  </p>
+                </div>
               </div>
 
-              <div className="text-sm text-[#555] space-y-1">
-                <p className="font-semibold text-dark">Öffnungszeiten</p>
-                <p>
-                  Mo, Mi, Do, Fr, Sa: 16–24 Uhr<br />
-                  Sonntag: 10:30–19 Uhr<br />
-                  Dienstag: Ruhetag
-                </p>
-              </div>
-
-              <div className="text-sm text-[#555] space-y-1">
-                <p className="font-semibold text-dark">Reservierung</p>
-                <p>
-                  Telefon & WhatsApp:<br />
-                  <span className="font-semibold text-dark">+43 644 923 8843</span>
-                </p>
-              </div>
-
-              <div className="pt-2">
+              <div className="pt-4">
                 <a
                   href="tel:+436449238843"
-                  className="btn-gold w-full text-sm text-center"
+                  className="btn-brand w-full text-sm text-center block"
                 >
                   Jetzt anrufen
                 </a>
               </div>
             </aside>
           </FadeIn>
-
         </div>
       </section>
 
-
-
-
       {/* ------------------------------------------------------
-         USP SECTION
+         USP SECTION – Brand-Orange Block
       ------------------------------------------------------ */}
-      <section className="w-full bg-dark text-cream">
+      <section className="w-full bg-[var(--brand)] text-[var(--white)]">
         <div
           className="max-w-6xl mx-auto px-6 py-12 grid gap-10 
                      md:grid-cols-3 text-sm md:text-base"
         >
           <FadeIn>
             <div>
-              <p className="text-xs tracking-[0.25em] uppercase text-gold mb-2">
+              <p className="text-xs tracking-[0.25em] uppercase opacity-80 mb-2">
                 Küche
               </p>
-              <h3 className="font-semibold mb-1">Holzofenpizza & Pasta</h3>
-              <p className="opacity-80">Knusprig, mediterran, hausgemacht.</p>
+              <h3 className="font-cinzel text-lg mb-1">
+                Holzofenpizza &amp; Pasta
+              </h3>
+              <p className="opacity-90">Knusprig, mediterran, hausgemacht.</p>
             </div>
           </FadeIn>
 
           <FadeIn>
             <div>
-              <p className="text-xs tracking-[0.25em] uppercase text-gold mb-2">
+              <p className="text-xs tracking-[0.25em] uppercase opacity-80 mb-2">
                 Bar
               </p>
-              <h3 className="font-semibold mb-1">Aperitivo & Drinks</h3>
-              <p className="opacity-80">Spritz, Wein, Cocktails & Vibes.</p>
+              <h3 className="font-cinzel text-lg mb-1">
+                Aperitivo &amp; Drinks
+              </h3>
+              <p className="opacity-90">Spritz, Wein, Cocktails &amp; Vibes.</p>
             </div>
           </FadeIn>
 
           <FadeIn>
             <div>
-              <p className="text-xs tracking-[0.25em] uppercase text-gold mb-2">
+              <p className="text-xs tracking-[0.25em] uppercase opacity-80 mb-2">
                 Events
               </p>
-              <h3 className="font-semibold mb-1">Feiern & Veranstaltungen</h3>
-              <p className="opacity-80">Für Firmenfeiern & private Anlässe.</p>
+              <h3 className="font-cinzel text-lg mb-1">
+                Feiern &amp; Veranstaltungen
+              </h3>
+              <p className="opacity-90">Für Firmenfeiern &amp; private Anlässe.</p>
             </div>
           </FadeIn>
         </div>
       </section>
 
-
-
-
       {/* ------------------------------------------------------
-         INTRO SECTION
+         INTRO SECTION – viel Weißraum
       ------------------------------------------------------ */}
       <section id="intro" className="max-w-6xl mx-auto px-6 py-20">
         <FadeIn>
-          <p className="text-sm tracking-[0.25em] text-gold uppercase mb-4">
-            Hauptplatz 5 · 8230 Hartberg
-          </p>
-
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            Italienisches Ristorante mit Herz & Charakter
+          <h2 className="text-3xl md:text-4xl font-cinzel tracking-tight mb-4">
+            Italienisches Ristorante mit Herz &amp; Charakter
           </h2>
         </FadeIn>
 
@@ -221,11 +179,8 @@ export default function Page() {
         </FadeIn>
       </section>
 
-
-
-
       {/* ------------------------------------------------------
-         FEATURES
+         FEATURES – leichte Karten
       ------------------------------------------------------ */}
       <section
         id="kueche"
@@ -234,56 +189,62 @@ export default function Page() {
           grid md:grid-cols-2 lg:grid-cols-4 gap-8
         "
       >
-        <FadeIn><Feature title="Pizza aus dem Holzofen" text="Knusprig & traditionell italienisch." /></FadeIn>
-        <FadeIn><Feature title="Frische Pasta" text="Mediterrane Nudelgerichte – cremig & würzig." /></FadeIn>
-        <FadeIn><Feature title="Salate & Antipasti" text="Knackig, frisch & hausgemacht." /></FadeIn>
-        <FadeIn><Feature title="Mehr Genuss…" text="Desserts, Specials & Überraschungen." /></FadeIn>
+        <FadeIn>
+          <Feature title="Pizza aus dem Holzofen" text="Knusprig &amp; traditionell italienisch." />
+        </FadeIn>
+        <FadeIn>
+          <Feature title="Frische Pasta" text="Mediterrane Nudelgerichte – cremig &amp; würzig." />
+        </FadeIn>
+        <FadeIn>
+          <Feature title="Salate &amp; Antipasti" text="Knackig, frisch &amp; hausgemacht." />
+        </FadeIn>
+        <FadeIn>
+          <Feature title="Mehr Genuss…" text="Desserts, Specials &amp; Überraschungen." />
+        </FadeIn>
       </section>
 
-
-
-
       {/* ------------------------------------------------------
-         STORY SECTION
+         STORY / AMBIENTE – reine Typo, ohne Bild
       ------------------------------------------------------ */}
-      <section id="events" className="w-full bg-[#f3eee8] border-y border-[#e0dbd4]">
-        <div className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
-
+      <section className="w-full bg-[#f5f0ea] border-y border-[#e0dbd4]">
+        <div className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12">
           <FadeIn>
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <img src="/la-mia-casa-auto.jpg" alt="" className="w-full object-cover" />
+            <div className="border-l-2 border-[var(--brand)] pl-6">
+              <h2 className="text-2xl md:text-3xl font-cinzel mb-4">
+                La mia Casa – mit Herz &amp; Erfahrung
+              </h2>
+              <p className="text-lg text-[#444] leading-relaxed mb-4">
+                Erfahrung aus Salzburg, Ischgl, Grafendorf und Stambach –
+                kombiniert mit echter italienischer Herzlichkeit.
+              </p>
+              <p className="text-lg text-[#444] leading-relaxed">
+                Ob Date, Familienfeier oder After-Work: Jeder Abend soll sich anfühlen
+                wie ein Besuch bei guten Freunden.
+              </p>
             </div>
           </FadeIn>
 
           <FadeIn>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                La mia Casa – mit Herz & Erfahrung
-              </h2>
-
-              <p className="text-lg text-[#444] leading-relaxed mb-4">
-                Erfahrung aus Salzburg, Ischgl, Grafendorf und Stambach – kombiniert
-                mit echter italienischer Herzlichkeit.
+            <div className="space-y-4 text-[#555] text-base leading-relaxed">
+              <p>
+                Im La mia Casa verbinden wir mediterrane Küche mit steirischer
+                Bodenständigkeit. Ein Glas Wein an der Bar, ein gemeinsamer Tisch,
+                Zeit zum Durchatmen – dafür sind wir da.
               </p>
-
-              <p className="text-lg text-[#444] leading-relaxed">
-                Ob Date, Familienfeier oder After-Work: Jeder Abend wird besonders.
+              <p>
+                Für besondere Anlässe, kleine Runden oder größere Feiern beraten wir
+                dich gerne persönlich und finden das passende Setting für deinen Abend.
               </p>
-
               <a
                 href="/team"
-                className="inline-block mt-6 text-gold hover:text-dark font-semibold text-lg"
+                className="inline-block mt-4 text-[var(--brand)] hover:text-[var(--brand-dark)] font-semibold"
               >
                 Mehr über uns →
               </a>
             </div>
           </FadeIn>
-
         </div>
       </section>
-
-
-
 
       {/* ------------------------------------------------------
          KONTAKT SECTION
@@ -292,36 +253,35 @@ export default function Page() {
         <FadeIn>
           <div
             className="
-              rounded-3xl bg-white/90 shadow-xl border border-[#e4ded6]
+              rounded-3xl bg-white/95 
+              border border-[#e4ded6]
               px-8 py-10 flex flex-col md:flex-row 
-              items-center justify-between gap-6
+              items-start md:items-center justify-between gap-6
             "
           >
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            <div className="space-y-3">
+              <h2 className="text-2xl md:text-3xl font-cinzel mb-1">
                 Lust auf einen Abend bei uns?
               </h2>
 
-              <p className="text-lg text-[#555]">
+              <p className="text-lg text-[#555] max-w-xl">
                 Reserviere telefonisch oder per WhatsApp – wir freuen uns auf dich.
               </p>
 
-              <p className="mt-3 text-lg font-semibold text-dark">
+              <p className="mt-2 text-lg font-semibold text-[var(--dark)]">
                 +43 644 923 8843
               </p>
             </div>
 
-            <a href="/kontakt" className="btn-gold text-lg px-8 py-3">
-              Kontakt & Reservierung
+            <a href="/kontakt" className="btn-brand text-lg px-8 py-3">
+              Kontakt &amp; Reservierung
             </a>
           </div>
         </FadeIn>
       </section>
-
     </div>
   );
 }
-
 
 /* ------------------------------------------------------
    Feature Card Component
@@ -330,16 +290,16 @@ function Feature({ title, text }: { title: string; text: string }) {
   return (
     <div
       className="
-        p-7 rounded-2xl bg-white/90 backdrop-blur-sm
-        border border-[#ece7e1] shadow-sm
-        hover:shadow-md hover:-translate-y-1 transition
+        card
+        hover:-translate-y-[2px] transition-transform
       "
     >
-      <h3 className="text-xl font-semibold mb-2 text-dark">{title}</h3>
+      <h3 className="text-xl font-cinzel mb-2 text-[var(--dark)]">{title}</h3>
       <p className="text-[#555] text-sm leading-relaxed">{text}</p>
     </div>
   );
 }
+
 
 
 

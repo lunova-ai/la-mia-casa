@@ -50,35 +50,49 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de">
       <body className="min-h-screen flex flex-col bg-cream text-dark">
 
-        {/* HEADER */}
-        <header className="w-full py-5 bg-white/80 backdrop-blur-md border-b border-black/10 sticky top-0 z-50 shadow-sm">
-          <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+     {/* HEADER */}
+<header className="
+  w-full py-5 
+  bg-white/70 
+  backdrop-blur-md 
+  sticky top-0 
+  z-50 
+  shadow-sm
+  header-gradient 
+  header-line
+">
+  <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
 
-            {/* TEXT LOGO */}
-            <Link
-              href="/"
-              className="font-logo text-3xl tracking-widest text-dark"
-              aria-label="La mia Casa – Startseite"
-            >
-              La mia Casa
-            </Link>
+<Link
+  href="/"
+  className="
+    font-logo 
+    text-2xl md:text-3xl 
+    text-[var(--dark)] 
+    tracking-[0.03em]
+    hover:text-[var(--brand)] 
+    transition-colors
+  "
+>
+  La mia Casa
+</Link>
 
-            {/* DESKTOP NAVIGATION */}
-            <nav
-              className="hidden md:flex gap-8 text-sm font-medium text-[#444] tracking-wide"
-              aria-label="Hauptnavigation"
-            >
-              <Link href="/speisekarte" className="hover:text-gold transition">Küche</Link>
-              <Link href="/events" className="hover:text-gold transition">Events</Link>
-              <Link href="/galerie" className="hover:text-gold transition">Galerie</Link>
-              <Link href="/team" className="hover:text-gold transition">Team</Link>
-              <Link href="/kontakt" className="hover:text-gold transition">Kontakt</Link>
-            </nav>
 
-            {/* MOBILE MENU BUTTON */}
-            <MobileMenuButton />
-          </div>
-        </header>
+    {/* DESKTOP NAVIGATION */}
+    <nav
+      className="hidden md:flex gap-10 text-[15px] font-cinzel text-[#333]"
+      aria-label="Hauptnavigation"
+    >
+      <Link href="/speisekarte" className="nav-link">Speisekarte</Link>
+      <Link href="/team" className="nav-link">Über uns</Link>
+      <Link href="/kontakt" className="nav-link">Kontakt</Link>
+    </nav>
+
+    {/* MOBILE MENU BUTTON */}
+    <MobileMenuButton />
+  </div>
+</header>
+
 
         {/* MOBILE MENU */}
         <MobileMenu />
@@ -89,36 +103,57 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         {/* WHATSAPP BUTTON */}
-        <WhatsAppButton phone="+436449238843" />
+        <WhatsAppButton phone="436449238843" />
 
         {/* FOOTER */}
-        <footer className="mt-20 py-12 bg-dark text-cream">
-          <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between">
+<footer className="bg-[#f8f5f2] text-[var(--dark)] mt-20 border-t border-[rgba(237,146,97,0.4)] py-10">
 
-            <div>
-              <h3 className="text-xl font-semibold">La mia Casa</h3>
-              <p className="text-sm mt-2 opacity-80 leading-relaxed">
-                Hauptplatz 5 · 8230 Hartberg<br />
-                Mo–Sa: 16:00 – 24:00<br />
-                Sonntag: 10:30 – 19:00<br />
-                Dienstag: Ruhetag
-              </p>
-            </div>
+  <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
 
-            <div className="mt-6 md:mt-0">
-              <a
-                href="tel:+436449238843"
-                className="btn-gold inline-block"
-              >
-                Jetzt anrufen
-              </a>
-            </div>
-          </div>
+    {/* Adresse */}
+    <div>
+      <h3 className="font-cinzel text-lg mb-2">La mia Casa</h3>
+      <p className="text-sm leading-relaxed">
+        Hauptplatz 5<br />
+        8230 Hartberg<br />
+        Österreich
+      </p>
+    </div>
 
-          <div className="max-w-6xl mx-auto px-6 mt-6 opacity-50 text-sm">
-            © {new Date().getFullYear()} La mia Casa – Crafted with style by Moni the Brain
-          </div>
-        </footer>
+    {/* Öffnungszeiten */}
+    <div>
+      <h3 className="font-cinzel text-lg mb-2">Öffnungszeiten</h3>
+      <p className="text-sm leading-relaxed">
+        Mo–Sa: 16:00 – 24:00<br />
+        Sonntag: 10:30 – 19:00<br />
+        Dienstag: Ruhetag
+      </p>
+    </div>
+
+    {/* Kontakt */}
+    <div>
+      <h3 className="font-cinzel text-lg mb-2">Kontakt</h3>
+      <p className="text-sm leading-relaxed">
+        Telefon / WhatsApp:<br />
+        <a href="tel:+436449238843" className="underline hover:text-[var(--brand)]">
+          +43 644 923 8843
+        </a>
+      </p>
+    </div>
+  </div>
+
+  {/* Untere Leiste */}
+  <div className="max-w-6xl mx-auto px-6 mt-10 flex flex-col md:flex-row justify-between items-center text-xs text-[#666] gap-4">
+
+    <div className="flex gap-6">
+      <a href="/impressum" className="hover:text-[var(--brand)]">Impressum</a>
+      <a href="/datenschutz" className="hover:text-[var(--brand)]">Datenschutz</a>
+    </div>
+
+    <p>© {new Date().getFullYear()} La mia Casa</p>
+
+  </div>
+</footer>
 
         {/* STRUCTURED DATA – GOOGLE LOCAL BUSINESS */}
         <script
