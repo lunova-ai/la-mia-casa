@@ -42,7 +42,7 @@ export default function Datenschutz() {
           <h2 className="text-2xl font-cinzel text-[var(--dark)] mb-2">Kontakt für Datenschutzanfragen</h2>
 
           <p className="text-lg text-[#555] leading-relaxed">
-            Telefon: <a href="tel:+436649238843" className="text-[var(--brand)] hover:text-[var(--brand-dark)]">+43 644 923 8843</a><br />
+            Telefon: <a href="tel:+436649238843" className="text-[var(--brand)] hover:text-[var(--brand-dark)]">+43 6649238843</a><br />
             E-Mail: <a href="mailto:info@la-mia-casa.app" className="text-[var(--brand)] hover:text-[var(--brand-dark)]">info@la-mia-casa.app</a>
           </p>
         </section>

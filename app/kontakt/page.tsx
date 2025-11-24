@@ -41,7 +41,7 @@ export default function Kontakt() {
             <svg width="28" height="28" stroke="var(--brand)" strokeWidth="1.5" fill="none">
               <path d="M7 4 L7 8 L11 10 L13 8 L17 12 L15 14 L17 18 L21 18" />
             </svg>
-            <p className="text-sm text-[#555]">+43 644 923 8843</p>
+            <p className="text-sm text-[#555]">+43 6649238843</p>
           </div>
 
           {/* WhatsApp */}
@@ -97,7 +97,7 @@ export default function Kontakt() {
                   href="tel:+436649238843"
                   className="text-[var(--brand)] hover:text-[var(--brand-dark)] transition font-medium"
                 >
-                  +43 644 923 8843
+                  +43 6649238843
                 </a>
               </div>
 

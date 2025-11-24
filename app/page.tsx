@@ -96,7 +96,7 @@ export default function Page() {
                   <p>
                     Telefon &amp; WhatsApp:<br />
                     <span className="font-semibold text-[var(--dark)]">
-                      +43 644 923 8843
+                      +43 6649238843
                     </span>
                   </p>
                 </div>
@@ -269,7 +269,7 @@ export default function Page() {
               </p>
 
               <p className="mt-2 text-lg font-semibold text-[var(--dark)]">
-                +43 644 923 8843
+                +43 6649238843
               </p>
             </div>
 

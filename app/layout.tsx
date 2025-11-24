@@ -136,7 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <p className="text-sm leading-relaxed">
         Telefon / WhatsApp:<br />
         <a href="tel:+436649238843" className="underline hover:text-[var(--brand)]">
-          +43 644 923 8843
+          +43 6649238843
         </a>
       </p>
     </div>
