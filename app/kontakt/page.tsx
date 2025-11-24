@@ -94,7 +94,7 @@ export default function Kontakt() {
               <div>
                 <p className="font-semibold text-[var(--dark)]">Telefon</p>
                 <a
-                  href="tel:+436449238843"
+                  href="tel:+436649238843"
                   className="text-[var(--brand)] hover:text-[var(--brand-dark)] transition font-medium"
                 >
                   +43 644 923 8843
@@ -104,7 +104,7 @@ export default function Kontakt() {
               <div>
                 <p className="font-semibold text-[var(--dark)]">WhatsApp</p>
                 <a
-                  href="https://wa.me/436449238843"
+                  href="https://wa.me/436649238843"
                   target="_blank"
                   className="text-[var(--brand)] hover:text-[var(--brand-dark)] transition font-medium"
                 >
@@ -125,12 +125,12 @@ export default function Kontakt() {
 
             {/* BUTTONS */}
             <div className="flex flex-wrap gap-6 pt-6">
-              <a href="tel:+436449238843" className="btn-brand text-base md:text-lg px-8 py-4">
+              <a href="tel:+436649238843" className="btn-brand text-base md:text-lg px-8 py-4">
                 Jetzt anrufen
               </a>
 
               <a
-                href="https://wa.me/436449238843"
+                href="https://wa.me/436649238843"
                 target="_blank"
                 className="
                   px-8 py-4 rounded-lg border border-[var(--dark)] 

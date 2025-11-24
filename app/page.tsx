@@ -104,7 +104,7 @@ export default function Page() {
 
               <div className="pt-4">
                 <a
-                  href="tel:+436449238843"
+                  href="tel:+436649238843"
                   className="btn-brand w-full text-sm text-center block"
                 >
                   Jetzt anrufen

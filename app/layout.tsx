@@ -103,7 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         {/* WHATSAPP BUTTON */}
-        <WhatsAppButton phone="436449238843" />
+        <WhatsAppButton phone="436649238843" />
 
         {/* FOOTER */}
 <footer className="bg-[#f8f5f2] text-[var(--dark)] mt-20 border-t border-[rgba(237,146,97,0.4)] py-10">
@@ -135,7 +135,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <h3 className="font-cinzel text-lg mb-2">Kontakt</h3>
       <p className="text-sm leading-relaxed">
         Telefon / WhatsApp:<br />
-        <a href="tel:+436449238843" className="underline hover:text-[var(--brand)]">
+        <a href="tel:+436649238843" className="underline hover:text-[var(--brand)]">
           +43 644 923 8843
         </a>
       </p>
@@ -171,7 +171,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 postalCode: "8230",
                 addressCountry: "AT",
               },
-              telephone: "+436449238843",
+              telephone: "+436649238843",
               servesCuisine: ["Italian", "Mediterranean", "Steirisch", "Pizza"],
               priceRange: "$$",
               url: "https://www.la-mia-casa.app",
