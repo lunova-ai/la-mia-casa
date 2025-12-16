@@ -124,9 +124,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <div>
       <h3 className="font-cinzel text-lg mb-2">Öffnungszeiten</h3>
       <p className="text-sm leading-relaxed">
-        Mo–Sa: 16:00 – 24:00<br />
-        Sonntag: 10:30 – 19:00<br />
-        Dienstag: Ruhetag
+        Montag: 16:00 – 24:00<br />
+        Dienstag: Ruhetag<br />
+        Mittwoch: Ruhetag<br />
+        Donnerstag bis Samstag: 16 – 24:00<br />
+        Sonntag: 10:30 – 20:00<br />
       </p>
     </div>
 

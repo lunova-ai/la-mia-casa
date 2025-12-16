@@ -1,0 +1,2 @@
+:HL["/_next/static/chunks/ceb5caba00321ed8.css","style"]
+0:{"buildId":"226NNLLySdbsIAasY6-OD","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"speisekarte","paramType":null,"paramKey":"speisekarte","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

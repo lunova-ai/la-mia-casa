@@ -115,9 +115,11 @@ export default function Kontakt() {
               <div>
                 <p className="font-semibold text-[var(--dark)]">Öffnungszeiten</p>
                 <p>
-                  Mo, Mi, Do, Fr, Sa: 16–24 Uhr<br />
-                  Sonntag: 10:30–19 Uhr<br />
-                  Dienstag: Ruhetag
+                  Montag: 16:00 – 24:00<br />
+                  Dienstag: Ruhetag<br />
+                  Mittwoch: Ruhetag<br />
+                  Donnerstag bis Samstag: 16 – 24:00<br />
+                  Sonntag: 10:30 – 20:00<br />
                 </p>
               </div>
 
