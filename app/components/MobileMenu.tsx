@@ -70,8 +70,7 @@ export default function MobileMenu() {
 
         {/* NAVIGATION */}
         <nav className="flex flex-col gap-7 text-xl font-medium text-[var(--dark)]">
-          <MobileLink href="/speisekarte" close={() => setOpen(false)}>Speisekarte</MobileLink>
-          <MobileLink href="/team" close={() => setOpen(false)}>Über uns</MobileLink>
+
           <MobileLink href="/kontakt" close={() => setOpen(false)}>Kontakt</MobileLink>
         </nav>
       </aside>

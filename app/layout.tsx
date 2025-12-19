@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className="hidden md:flex gap-10 text-[15px] font-cinzel text-[#333]"
       aria-label="Hauptnavigation"
     >
-      <Link href="/speisekarte" className="nav-link">Speisekarte</Link>
+
       <Link href="/team" className="nav-link">Über uns</Link>
       <Link href="/kontakt" className="nav-link">Kontakt</Link>
     </nav>

@@ -54,9 +54,7 @@ export default function Page() {
 
               {/* CTA */}
               <div className="mt-6 flex flex-wrap gap-4">
-                <a href="/speisekarte" className="btn-brand text-base md:text-lg">
-                  Speisekarte ansehen
-                </a>
+
                 <a href="/kontakt" className="btn-outline text-base md:text-lg">
                   Tisch reservieren
                 </a>
