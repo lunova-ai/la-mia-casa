@@ -14,22 +14,19 @@ export default function Speisekarte() {
       <FadeIn>
         <div className="text-center">
           <p className="text-xs tracking-[0.28em] uppercase text-[var(--brand)] mb-3">
-            La mia Casa · Cucina & Amore
+            Speisekarte
           </p>
 
-          <h1 className="text-4xl md:text-5xl font-cinzel text-[var(--dark)] mb-4">
-            Speisekarte
+          <h1 className="text-5xl md:text-6xl font-cinzel text-[var(--dark)]">
+            Amore · Cucina
           </h1>
 
-          <p className="text-lg text-[#555] leading-relaxed max-w-3xl mx-auto">
-            Italienische Klassiker, moderne Akzente und ehrliche Handarbeit –
-            so entsteht bei uns ein Stück Italien mitten in Hartberg.
-            Küchenchef Daniel kocht mit Gefühl für Produkte, Aromen und die Freude am Genuss.
+          <p className="mt-6 text-base md:text-lg text-[#666] leading-relaxed max-w-2xl mx-auto">
+            Klassische italienische Küche, ehrliche Zutaten und ein Hauch Styria.
           </p>
 
-          <blockquote className="text-sm text-[#777] italic mt-6">
-            „Kochen bedeutet für mich, Emotionen auf den Teller zu bringen – und Gäste
-            mit jedem Bissen ein Stück Italien spüren zu lassen.“ – Daniel
+          <blockquote className="mt-10 text-sm md:text-base italic text-[#777] max-w-3xl mx-auto leading-relaxed">
+            „Unser Ziel ist es, Ihnen mit jedem Bissen ein Stück Italien spüren zu lassen.“ – Daniel
           </blockquote>
 
           <div className="w-24 h-[1px] bg-[rgba(237,146,97,0.35)] mx-auto mt-10"></div>
@@ -42,31 +39,23 @@ export default function Speisekarte() {
          ANTIPASTI
       ------------------------------------------------------ */}
       <MenuSection title="Antipasti · Vorspeisen">
-        <MenuItem name="Caprese di Burrata" price="12,90" desc="Bunte Tomatenvariation, Burrata, Basilikumpesto & Balsamicoglace" />
-        <MenuItem name="Hartberger Antipasti-Platte" price="14,50" desc="Feine Auswahl an italienischen & regionalen Spezialitäten" />
         <MenuItem name="Prosciutto Crudo e Melone" price="11,50" desc="Rohschinken mit Zuckermelone" />
-        <MenuItem name="Supplì Explosion" price="10,90" desc="Knusprige Risottobällchen, gefüllt mit Tomate-Mozzarella, Zitrone-Thunfisch-Olive & Bolognese" />
-        <MenuItem name="Zuppa di Basilico" price="5,50" desc="Basilikumschaumsuppe mit Pizzastangerl" />
+        <MenuItem name="Cozze Provenciale" price="9,90" desc="Miesmuschel in Tomatensauce · Knoblauch · Zwiebel · Petersilie" />
+        <MenuItem name="Caprese di Burrata" price="12,90" desc="Bunte Tomatenvariation · Burrata · Basilikumpesto & Balsamicoglace" />
+        <MenuItem name="Zuppa di Basilico" price="5,50" desc="Basilikumschaumsuppe" />
       </MenuSection>
-
 
 
       {/* ------------------------------------------------------
          INSALATONE
       ------------------------------------------------------ */}
-      <MenuSection
-        title="Insalatone · Salate"
-        subtitle="Alle Salate werden mit Gebäck serviert."
-      >
-        <MenuItem name="Caesar Salad" price="13,50" desc="Blattsalate, gegrillte Hühnerstreifen, Croutons, Tomaten, Parmesan, Anchovi-Parmesan-Dressing" />
-        <MenuItem name="Insalata Venice" price="14,90" desc="Blattsalate, Tomaten, Avocado, Mango, Burrata, Pistazien, Mango-Limetten-Dressing" />
-        <MenuItem name="Insalata Melone" price="11,90" desc="Blattsalate, Melone, Feta, Tomaten, Gurken, Oliven, Zwiebel, Hausdressing" />
-        <MenuItem name="Insalata Regina" price="15,50" desc="Blattsalat, Garnelen, Gurken, Karotten, Radieschen, Oliven, Tomaten, Kräuter-Dressing" />
-        <MenuItem name="Insalata di Tonno" price="12,90" desc="Blattsalate, Tomaten, Thunfisch, Zwiebel, Oliven, Mais, Balsamico-Dressing" />
-        <MenuItem name="Insalata La mia Casa" price="13,90" desc="Blattsalate, Rohkost, geröstete Erdäpfel, Zwiebel, gegrillte Hühnerstreifen, Käse, Kräuter-Dressing" />
-        <MenuItem name="Insalata Toscana" price="13,50" desc="Rucola, Mozzarella, Prosciutto, Parmesan, Tomaten, Oliven, Balsamico-Dressing" />
-        <MenuItem name="Insalata Manzo" price="17,90" desc="Blattsalate, Roastbeef, Tomaten, Gurken, Karotten, Radieschen, Kräuter-Dressing" />
-        <MenuItem name="Insalata Styria" price="14,40" desc="Blattsalate, gebackene Hühnerstreifen in Kürbispanade, Radieschen, Gurken, Tomaten, Kernöl-Dressing" />
+      <MenuSection title="Insalatone · Salate" subtitle="mit Gebäck">
+        <MenuItem name="Caesar Salad" price="13,50" desc="Blattsalate · gegrillte Hühnerstreifen · Croutons · Tomaten · Parmesan · Anchovi-Parmesan Dressing" />
+        <MenuItem name="Insalata di Tonno" price="12,90" desc="Blattsalate · Tomaten · Thunfisch · Zwiebel · Oliven · Mais · Balsamico Dressing" />
+        <MenuItem name="Insalata Manzo" price="17,90" desc="Blattsalate · Roastbeef · Tomaten · Gurken · Karotten · Radieschen · Kräuter Dressing" />
+        <MenuItem name="Insalata Styria" price="14,40" desc="Blattsalate · gebackene Hühnerstreifen in Kürbispanade · Radieschen · Gurken · Tomaten · Kernöl Dressing" />
+        <MenuItem name="Insalata Regina" price="15,50" desc="Blattsalat · Garnelen · Gurken · Karotten · Radieschen · Oliven · Tomaten · Kräuter Dressing" />
+        <MenuItem name="Insalata Mista" price="4,90" desc="Gemischter Salat" />
       </MenuSection>
 
 
@@ -75,11 +64,10 @@ export default function Speisekarte() {
          CARNE & PESCE
       ------------------------------------------------------ */}
       <MenuSection title="Carne & Pesce · Hauptgerichte">
-        <MenuItem name="Saltimbocca Romana" price="16,90" desc="Hühnerfilet mit Prosciutto & Salbei, auf cremiger Polenta und Zitronen-Jus" />
-        <MenuItem name="Pollo alla Mediterranea" price="16,90" desc="Gegrilltes Hühnerfilet mit Tomaten-Oliven-Sugo & Kräuter-Gnocchi" />
-        <MenuItem name="Piccata alla Styria" price="16,90" desc="Hühnerfilet in Parmesan-Kürbiskern-Panier auf Spaghetti mit Paradeisersugo & Basilikum" />
-        <MenuItem name="Cozze Provenzale (klein/groß)" price="9,90 / 15,90" desc="Miesmuscheln in Tomatensauce mit Knoblauch, Zwiebel & Petersilie" />
-        <MenuItem name="Fritto Misto di Mare" price="18,90" desc="Calamari, Garnelen, Ährenfische & Meeresfrüchte mit Sauce tartare" />
+        <MenuItem name="Saltimbocca Romana" price="16,90" desc="Hühnerfilet mit Prosciutto & Salbei · cremige Polenta · Zitronen-Jus" />
+        <MenuItem name="Piccata alla Styria" price="16,90" desc="Hühnerfilet in Parmesan-Kürbiskern-Panier · Spaghetti · Paradeisersugo · frischer Basilikum" />
+        <MenuItem name="Cozze Provenciale" price="15,90" desc="Miesmuschel in Tomatensauce · Knoblauch · Zwiebel · Petersilie" />
+        <MenuItem name="Fritto Misto di Mare" price="18,90" desc="Calamari · Garnelen · Ährenfische · Meeresfrüchte · Sauce Tartare" />
       </MenuSection>
 
 
@@ -88,10 +76,8 @@ export default function Speisekarte() {
          PRIMI PIATTI SPECIALE
       ------------------------------------------------------ */}
       <MenuSection title="Primi Piatti Speciale · Pasta">
-        <MenuItem name="Spaghetti Burrata" price="14,90" desc="Spaghetti mit Paradeisersauce, Kirschtomaten, Burrata & Basilikum" />
-        <MenuItem name="Pasta Pescatore" price="16,50" desc="Spaghetti mit Garnelen, Muscheln & Meeresfrüchten in Paradeisersauce" />
-        <MenuItem name="Pasta Styria" price="12,10" desc="Penne mit Kürbiskern-Pesto & Parmesan-Crunch" />
-        <MenuItem name="Ravioli Burrata" price="15,90" desc="Ravioli mit Burrata & Basilikum, auf Olivenschaum & Tomatenreduktion" />
+        <MenuItem name="Spaghetti Burrata" price="14,90" desc="Spaghetti · Paradeisersauce · Kirschtomaten · Burrata · frischer Basilikum" />
+        <MenuItem name="Pasta Pescatore" price="16,50" desc="Spaghetti mit Garnelen · Muscheln · Meeresfrüchte in Paradeisersauce" />
       </MenuSection>
 
 
@@ -101,16 +87,14 @@ export default function Speisekarte() {
       ------------------------------------------------------ */}
       <MenuSection
         title="Pasta Classico"
-        subtitle="Wählen Sie Ihre Pasta: Spaghetti, Penne, Gnocchi oder glutenfreie Pasta (+ € 1,00)."
+        subtitle="Wählen Sie für Ihre Pasta folgende Zubereitungsarten aus: Spaghetti, Penne, Gnocchi und glutenfreie Pasta (+ € 1,00)."
       >
-        <MenuItem name="Aglio, Olio e Peperoncino" price="11,50" desc="Knoblauch · Olivenöl · Petersilie · frischer Chili" />
-        <MenuItem name="Pomodoro e Basilico" price="11,50" desc="Paradeisersauce · Basilikum" />
-        <MenuItem name="Arrabbiata" price="11,50" desc="Scharfes Tomatensugo · Chili" />
-        <MenuItem name="Gorgonzola" price="11,50" desc="Cremige Gorgonzolasauce" />
-        <MenuItem name="Bolognese" price="12,50" desc="Klassische Paradeiser-Fleischsauce" />
-        <MenuItem name="Carbonara" price="12,90" desc="Original italienisch – ohne Sahne" />
-        <MenuItem name="Lasagne della Casa" price="12,50" desc="Im Pizzaofen überbacken" />
-        <MenuItem name="Nudeltopf ‚Casa‘" price="12,50" desc="Mit Käse überbacken" />
+        <MenuItem name="Con Aglio, Olio e Peperoncino" price="11,50" desc="Knoblauch · Olivenöl · Petersilie · frischer Chili" />
+        <MenuItem name="Con Pomodoro e Basilico" price="11,50" desc="Paradeisersauce · frischer Basilikum" />
+        <MenuItem name="Alla Bolognese" price="12,50" desc="Paradeiser-Fleischsauce" />
+        <MenuItem name="Alla Carbonara" price="12,90" desc="Original italienisch – ohne Sahne" />
+        <MenuItem name="Alla Ravanello" price="12,50" desc="Radieschenblatt Pesto" />
+        <MenuItem name="Lasagne della Casa al Forno" price="12,90" desc="Nach Art des Hauses · im Pizzaofen überbacken" />
       </MenuSection>
 
 
@@ -119,43 +103,43 @@ export default function Speisekarte() {
          RISOTTI
       ------------------------------------------------------ */}
       <MenuSection title="Risotti">
-        <MenuItem name="Risotto ai Frutti di Mare" price="16,50" desc="Safranrisotto mit Meeresfrüchten & Parmesanchip" />
-        <MenuItem name="Risotto ai Funghi" price="13,50" desc="Cremiges Risotto mit sautierten Pilzen & Grünem Veltliner" />
+        <MenuItem name="Risotto ai Frutti di Mare" price="16,50" desc="Cremiges Safranrisotto mit Meeresfrüchten · Parmesanchip" />
       </MenuSection>
 
 
 
       {/* ------------------------------------------------------
-         PIZZA – KLASSISCH
+         PIZZA CLASSICO
       ------------------------------------------------------ */}
       <MenuSection title="Pizza · klassisch" columns={2}>
         <MenuItem name="Margherita" price="10,40" desc="Paradeisersauce · Mozzarella · Basilikum" />
         <MenuItem name="Prosciutto" price="12,40" desc="Paradeisersauce · Mozzarella · Schinken" />
         <MenuItem name="Prosciutto e Funghi" price="13,10" desc="Paradeisersauce · Mozzarella · Schinken · Champignons" />
+        <MenuItem name="Bolognese" price="12,90" desc="Paradeisersauce · Mozzarella · Paradeiser-Fleischsauce" />
         <MenuItem name="Salami" price="12,40" desc="Paradeisersauce · Mozzarella · Salami" />
-        <MenuItem name="Carne" price="13,40" desc="Paradeisersauce · Mozzarella · Bolognese" />
+
         <MenuItem name="Capricciosa" price="14,10" desc="Paradeisersauce · Mozzarella · Schinken · Champignons · Artischocken · Oliven" />
         <MenuItem name="Contese" price="14,40" desc="Paradeisersauce · Mozzarella · Schinken · Champignons · Salami · Ei" />
-        <MenuItem name="Diavolo" price="14,10" desc="Paradeisersauce · Mozzarella · scharfe Salami · Paprika · Zwiebeln · Pfefferoni" />
         <MenuItem name="Rusticana" price="14,10" desc="Paradeisersauce · Mozzarella · Schinken · Speck · Mais · Pfefferoni" />
-        <MenuItem name="Casalinga" price="14,10" desc="Paradeisersauce · Mozzarella · Schinken · Salami · Zwiebel · Speck · Champignons" />
-        <MenuItem name="Prosciutto e Rucola" price="14,10" desc="Paradeisersauce · Mozzarella · Prosciutto · Rucola · Grana · Olivenöl" />
-        <MenuItem name="Tonno" price="14,10" desc="Paradeisersauce · Mozzarella · Thunfisch · Zwiebel · Oliven" />
+        <MenuItem name="Casalinga" price="14,90" desc="Paradeisersauce · Mozzarella · Schinken · Salami · Zwiebel · Speck · Champignons" />
+        <MenuItem name="Tonno" price="14,10" desc="Paradeisersauce · Mozzarella · Thunfisch · Zwiebel · Olive" />
         <MenuItem name="Frutti di Mare" price="16,10" desc="Paradeisersauce · Mozzarella · Meeresfrüchte · Muscheln" />
-        <MenuItem name="Formaggio" price="15,10" desc="Paradeisersauce · Mozzarella · Camembert · Schafkäse · Gorgonzola" />
       </MenuSection>
 
 
 
       {/* ------------------------------------------------------
-         PIZZA SPEZIALE
+         PIZZA SPECIALE
       ------------------------------------------------------ */}
       <MenuSection title="Pizza · Speciale" columns={2}>
         <MenuItem name="Gamberetti e Rucola" price="16,40" desc="Paradeisersauce · Mozzarella · Garnelen · Zucchini · Oliven · Rucola · Zitrone" />
-        <MenuItem name="Burrata" price="15,40" desc="Paradeisersauce · Mozzarella · Burrata · Olivenöl · Kirschparadeiser · Rucola · Prosciutto" />
-        <MenuItem name="Tartufo" price="16,40" desc="Paradeisersauce · Mozzarella · Trüffelsalami · Rucola · Trüffelöl · Grana" />
-        <MenuItem name="Steira" price="14,40" desc="Paradeisersauce · Mozzarella · Speck · Zwiebel · Kernöl · Kürbiskerne · Ei" />
+        <MenuItem name="Steira" price="14,90" desc="Paradeisersauce · Mozzarella · Speck · Zwiebel · Kernöl · Kürbiskerne · Ei" />
+        <MenuItem name="Burrata" price="15,90" desc="Paradeisersauce · Mozzarella · Burrata · Olivenöl · Kirschparadeiser · Rucola · Prosciutto" />
         <MenuItem name="Brie e Crudo" price="14,40" desc="Paradeisersauce · Mozzarella · Brie · Prosciutto Crudo" />
+
+        <div className="col-span-full mt-6 text-sm text-[#666] leading-relaxed">
+          <p><span className="font-medium text-[var(--dark)]">Extras:</span> Burrata extra 3,90 € · Ei extra 1,00 €</p>
+        </div>
       </MenuSection>
 
 
@@ -164,45 +148,30 @@ export default function Speisekarte() {
          DESSERT
       ------------------------------------------------------ */}
       <MenuSection title="Das Süße zum Schluss">
-        <MenuItem name="Dessertteller aus Dreierlei" price="8,90" desc="Die süße Überraschung des Hauses" />
+        <MenuItem name="Pizza Dolce" price="12,90" desc="Nutella · Beeren · Schlag" />
+        <MenuItem name="Gelato Amore" price="5,50" desc="Vanilleeis · Beeren · Schlag" />
+        <MenuItem name="Gelato Styria" price="5,50" desc="Vanilleeis · kandierte Kürbiskerne · Kernöl · Schlag" />
+
+        <div className="mt-8 space-y-2 text-sm text-[#666] leading-relaxed">
+          <p>Für weitere Nachspeisen fragen Sie unser Personal.</p>
+          <p>Für Speisenänderungen erlauben wir uns einen Aufwandszuschlag von 0,60 € zu verrechnen.</p>
+          <p>Pizzakarton 0,60 €</p>
+          <p className="text-xs">*** Über Allergene informiert Sie gerne unser Fachpersonal ***</p>
+        </div>
       </MenuSection>
 
-
-
-      {/* ------------------------------------------------------
-         HINWEISE & ALLERGENE
-      ------------------------------------------------------ */}
-      <FadeIn>
-        <div className="mt-10 text-sm text-[#666] space-y-2 text-center">
-          <p>
-            Für Speisenänderungen erlauben wir uns einen Aufwandszuschlag von{" "}
-            <span className="font-semibold">€ 0,60</span> zu verrechnen.
-          </p>
-          <p>
-            Pizzakarton zum Mitnehmen:{" "}
-            <span className="font-semibold">€ 0,60</span>
-          </p>
-          <p className="mt-4 italic">
-            *** Über Allergene informiert Sie gerne unser Fachpersonal. ***
-          </p>
-        </div>
-      </FadeIn>
     </div>
   );
 }
 
-
-
-
 /* ------------------------------------------------------
-   COMPONENTS — Neues edles Layout
+   COMPONENTS
 ------------------------------------------------------ */
-
 interface MenuSectionProps {
   title: string;
   subtitle?: string;
-  children: ReactNode;
   columns?: 1 | 2;
+  children: ReactNode;
 }
 
 function MenuSection({ title, subtitle, children, columns = 1 }: MenuSectionProps) {
@@ -258,4 +227,3 @@ function MenuItem({ name, price, desc }: MenuItemProps) {
     </div>
   );
 }
-
