@@ -353,7 +353,7 @@ export default function ExtrasPage() {
         options: ["Buon Natale", "Felice Navidad", "Buona sera", "Ciao Natale"],
         correctIndex: 0,
         explanation:
-          "Richtig ist „Buon Natale“. Egal ob „Felice Navidad“, „Buona sera“ oder „Ciao Natale“ – das klingt zwar alles sehr südlich, ist aber eher Tapas als Pizza.",
+          "Richtig ist „Buon Natale“. Die anderen Optionen sind zwar bemüht international, aber leider nicht italienisch: „Felice Navidad“ ist Spanisch, „Buona sera“ passt eher zum Abend als zu Weihnachten – und „Ciao Natale“ klingt, als würde man die Feiertage freundlich verabschieden.",
       },
     ],
     []
