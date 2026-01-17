@@ -1,9 +1,39 @@
 /* ------------------------------------------------------
-   GOOGLE FONTS – CLS-sicher
+   SELF-HOSTED FONTS (kein Google-Fonts-Request)
 ------------------------------------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+@font-face {
+  font-family: "AlluraLocal";
+  src: url("/fonts/Allura/Allura-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CinzelLocal";
+  src: url("/fonts/Cinzel/Cinzel-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "InterLocal";
+  src: url("/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "InterLocal";
+  src: url("/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
 
 /* ------------------------------------------------------
    TAILWIND
@@ -16,25 +46,35 @@
    ROOT VARIABLES – Brand Colors
 ------------------------------------------------------ */
 :root {
-  --brand: #ed9261;        /* Hauptfarbe (Lokal-Wandfarbe) */
-  --brand-dark: #d87842;   /* dunklere Variante */
-  --dark: #1a1a1a;         /* Text */
-  --cream: #faf8f6;        /* Hintergrund */
+  --brand: #ed9261; /* Hauptfarbe (Lokal-Wandfarbe) */
+  --brand-dark: #d87842; /* dunklere Variante */
+  --dark: #1a1a1a; /* Text */
+  --cream: #faf8f6; /* Hintergrund */
   --white: #ffffff;
 }
 
 /* ------------------------------------------------------
    BRAND FONTS
 ------------------------------------------------------ */
+
+/* Logo in Cinzel – eleganter, kompakter */
 .font-logo {
-  font-family: 'Allura', cursive;
-  letter-spacing: 0.04em;
-  font-weight: 400;
+  font-family: "CinzelLocal", "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: none;
 }
 
+/* Serif-Headlines mit Cinzel */
 .font-cinzel {
-  font-family: 'Cinzel', serif;
+  font-family: "CinzelLocal", "Times New Roman", serif;
   letter-spacing: 0.5px;
+}
+
+/* Script-Schrift (falls du Allura mal brauchst) */
+.font-allura {
+  font-family: "AlluraLocal", "Allura", "Brush Script MT", cursive;
+  letter-spacing: 0.04em;
 }
 
 /* ------------------------------------------------------
@@ -45,12 +85,15 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "InterLocal", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
   @apply bg-[var(--cream)] text-[var(--dark)] antialiased;
   font-feature-settings: "liga", "kern";
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   @apply tracking-tight font-semibold;
   line-height: 1.15;
   color: var(--dark);
@@ -136,6 +179,16 @@ h1, h2, h3 {
   background-color: #f3f3f3;
 }
 
+/* Horizontale Scrollbar ausblenden (für Pill-Navigation) */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE und Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 /* ------------------------------------------------------
    CARDS
 ------------------------------------------------------ */
@@ -154,11 +207,4 @@ h1, h2, h3 {
   @apply w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2;
   border-color: #ddd;
   --tw-ring-color: var(--brand);
-}
-/* --- LOGO – Cinzel Variant (feiner & kompakter) --- */
-.font-logo {
-  font-family: 'Cinzel', serif;
-  font-weight: 500;               /* leichter, eleganter */
-  letter-spacing: 0.03em;         /* feiner */
-  text-transform: none;           /* natürlicher Look */
 }

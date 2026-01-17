@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "Steirische Küche Hartberg",
     "Beste Pizza Hartberg",
     "Aperitivo Hartberg",
-    "Essen gehen Hartberg"
+    "Essen gehen Hartberg",
   ],
   metadataBase: new URL("https://www.la-mia-casa.app"),
   alternates: {
@@ -49,111 +49,125 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de">
       <body className="min-h-screen flex flex-col bg-cream text-dark">
+        {/* HEADER */}
+        <header
+          className="
+            w-full py-5
+            bg-white/70
+            backdrop-blur-md
+            sticky top-0
+            z-50
+            shadow-sm
+            header-gradient
+            header-line
+          "
+        >
+          <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+            {/* Logo */}
+            <Link
+              href="/"
+              className="
+                font-logo
+                text-2xl md:text-3xl
+                text-[var(--dark)]
+                tracking-[0.03em]
+                hover:text-[var(--brand)]
+                transition-colors
+              "
+            >
+              La mia Casa
+            </Link>
 
-     {/* HEADER */}
-<header className="
-  w-full py-5 
-  bg-white/70 
-  backdrop-blur-md 
-  sticky top-0 
-  z-50 
-  shadow-sm
-  header-gradient 
-  header-line
-">
-  <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+            {/* DESKTOP NAVIGATION */}
+            <nav
+              className="hidden md:flex gap-10 text-[15px] font-cinzel text-[#333]"
+              aria-label="Hauptnavigation"
+            >
+              <Link href="/speisekarte" className="nav-link">
+                Speisekarte
+              </Link>
+              <Link href="/team" className="nav-link">
+                Über uns
+              </Link>
+              <Link href="/extras" className="nav-link">
+                Extras
+              </Link>
+              <Link href="/kontakt" className="nav-link">
+                Kontakt
+              </Link>
+            </nav>
 
-<Link
-  href="/"
-  className="
-    font-logo 
-    text-2xl md:text-3xl 
-    text-[var(--dark)] 
-    tracking-[0.03em]
-    hover:text-[var(--brand)] 
-    transition-colors
-  "
->
-  La mia Casa
-</Link>
-
-
-    {/* DESKTOP NAVIGATION */}
-    <nav
-      className="hidden md:flex gap-10 text-[15px] font-cinzel text-[#333]"
-      aria-label="Hauptnavigation"
-    >
-      <Link href="/speisekarte" className="nav-link">Speisekarte</Link>
-      <Link href="/team" className="nav-link">Über uns</Link>
-      <Link href="/kontakt" className="nav-link">Kontakt</Link>
-    </nav>
-
-    {/* MOBILE MENU BUTTON */}
-    <MobileMenuButton />
-  </div>
-</header>
-
+            {/* MOBILE MENU BUTTON */}
+            <MobileMenuButton />
+          </div>
+        </header>
 
         {/* MOBILE MENU */}
         <MobileMenu />
 
         {/* CONTENT */}
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
 
         {/* WHATSAPP BUTTON */}
         <WhatsAppButton phone="436649238843" />
 
         {/* FOOTER */}
-<footer className="bg-[#f8f5f2] text-[var(--dark)] mt-20 border-t border-[rgba(237,146,97,0.4)] py-10">
+        <footer className="bg-[#f8f5f2] text-[var(--dark)] mt-20 border-t border-[rgba(237,146,97,0.4)] py-10">
+          <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            {/* Adresse */}
+            <div>
+              <h3 className="font-cinzel text-lg mb-2">La mia Casa</h3>
+              <p className="text-sm leading-relaxed">
+                Hauptplatz 5
+                <br />
+                8230 Hartberg
+                <br />
+                Österreich
+              </p>
+            </div>
 
-  <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            {/* Öffnungszeiten */}
+            <div>
+              <h3 className="font-cinzel text-lg mb-2">Öffnungszeiten</h3>
+              <p className="text-sm leading-relaxed">
+                Mo, Do, Fr &amp; Sa: 16:00 – 24:00 Uhr
+                <br />
+                So: 11:00 – 19:00 Uhr
+                <br />
+                Di &amp; Mi: Ruhetag
+              </p>
+            </div>
 
-    {/* Adresse */}
-    <div>
-      <h3 className="font-cinzel text-lg mb-2">La mia Casa</h3>
-      <p className="text-sm leading-relaxed">
-        Hauptplatz 5<br />
-        8230 Hartberg<br />
-        Österreich
-      </p>
-    </div>
+            {/* Kontakt */}
+            <div>
+              <h3 className="font-cinzel text-lg mb-2">Kontakt</h3>
+              <p className="text-sm leading-relaxed">
+                Telefon / WhatsApp:
+                <br />
+                <a
+                  href="tel:+436649238843"
+                  className="underline hover:text-[var(--brand)]"
+                >
+                  +43 6649238843
+                </a>
+              </p>
+            </div>
+          </div>
 
-    {/* Öffnungszeiten */}
-    <div>
-      <h3 className="font-cinzel text-lg mb-2">Öffnungszeiten</h3>
-      <p className="text-sm leading-relaxed">
-        Mo, Do, Fr & Sa: 16:00 – 24:00 Uhr<br />
-        So: 10:30 – 20:00 Uhr<br />
-        Di & Mi: Ruhetag
-      </p>
-    </div>
+          {/* Untere Leiste */}
+          <div className="max-w-6xl mx-auto px-6 mt-10 flex flex-col md:flex-row justify-between items-center text-xs text-[#666] gap-4">
+            <div className="flex gap-6">
+              <a href="/impressum" className="hover:text-[var(--brand)]">
+                Impressum
+              </a>
+              <a href="/datenschutz" className="hover:text-[var(--brand)]">
+                Datenschutz
+              </a>
+            </div>
 
-    {/* Kontakt */}
-    <div>
-      <h3 className="font-cinzel text-lg mb-2">Kontakt</h3>
-      <p className="text-sm leading-relaxed">
-        Telefon / WhatsApp:<br />
-        <a href="tel:+436649238843" className="underline hover:text-[var(--brand)]">
-          +43 6649238843
-        </a>
-      </p>
-    </div>
-  </div>
-
-  {/* Untere Leiste */}
-  <div className="max-w-6xl mx-auto px-6 mt-10 flex flex-col md:flex-row justify-between items-center text-xs text-[#666] gap-4">
-
-    <div className="flex gap-6">
-      <a href="/impressum" className="hover:text-[var(--brand)]">Impressum</a>
-      <a href="/datenschutz" className="hover:text-[var(--brand)]">Datenschutz</a>
-    </div>
-
-    <p>© {new Date().getFullYear()} La mia Casa</p>
-
-  </div>
-</footer>
+            <p>© {new Date().getFullYear()} La mia Casa</p>
+          </div>
+        </footer>
 
         {/* STRUCTURED DATA – GOOGLE LOCAL BUSINESS */}
         <script
@@ -178,14 +192,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",
-                  dayOfWeek: ["Monday","Wednesday","Thursday","Friday","Saturday"],
+                  dayOfWeek: ["Monday", "Thursday", "Friday", "Saturday"],
                   opens: "16:00",
                   closes: "24:00",
                 },
                 {
                   "@type": "OpeningHoursSpecification",
                   dayOfWeek: "Sunday",
-                  opens: "10:30",
+                  opens: "11:00",
                   closes: "19:00",
                 },
               ],
@@ -196,5 +210,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
 
 

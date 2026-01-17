@@ -1,3 +1,47 @@
+# Node / Paketmanager
 node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Next.js / Build-Output
 .next
-.env*
+.next/
+out/
+dist/
+build/
+
+# Vercel / Deployment
+.vercel
+
+# Env / lokale Konfiguration
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Betriebssystem / Editor
+.DS_Store
+Thumbs.db
+
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+logs
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sonstiger Cache
+.cache/
+.next/cache/

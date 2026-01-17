@@ -64,13 +64,13 @@ export default function Page() {
     setActive((v) => (v === null ? 0 : (v + 1) % gallery.length));
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col bg-[var(--cream)]">
       {/* ------------------------------------------------------
          HERO – Split: Text links, Pizza-Bild rechts
       ------------------------------------------------------ */}
       <section
         id="home"
-        className="relative w-full border-b border-[#e1ddd8] bg-[var(--cream)]"
+        className="relative w-full border-b border-[#e1ddd8] bg-[var(--cream)] scroll-mt-24"
       >
         {/* dezente Stucco-/Paper-Textur */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.55]">
@@ -167,6 +167,7 @@ export default function Page() {
                     width={960}
                     height={960}
                     priority
+                    sizes="(min-width: 1024px) 480px, (min-width: 768px) 60vw, 90vw"
                     className="h-[320px] md:h-[520px] w-full object-cover"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-black/5 to-transparent" />
@@ -178,7 +179,7 @@ export default function Page() {
                   style={{ transform: "rotate(6deg)" }}
                 />
 
-                {/* Badge unten rechts */}
+                {/* Badge unten */}
                 <div
                   className="absolute -bottom-4 left-6 right-6 md:left-10 md:right-10"
                   style={{ transform: "rotate(6deg)" }}
@@ -244,7 +245,7 @@ export default function Page() {
       ------------------------------------------------------ */}
       <section
         id="galerie"
-        className="relative w-full border-b border-[#e1ddd8] bg-[var(--cream)]"
+        className="relative w-full border-b border-[#e1ddd8] bg-[var(--cream)] scroll-mt-24"
       >
         {/* weiche Glows im Hintergrund */}
         <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[var(--brand)]/20 blur-3xl" />
@@ -271,7 +272,7 @@ export default function Page() {
             </div>
           </FadeIn>
 
-          {/* 2×2 Grid – alle Karten gleich groß, ruhiges Layout */}
+          {/* 2×2 Grid – ruhiges Layout, alle Karten gleich groß */}
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
             {gallery.map((item, idx) => (
               <FadeIn key={item.src}>
@@ -279,7 +280,7 @@ export default function Page() {
                   type="button"
                   onClick={() => setActive(idx)}
                   className="group relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-[#e5e1da] bg-white/60 shadow-[0_22px_55px_rgba(0,0,0,0.09)] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] transition-transform duration-300 hover:-translate-y-[3px]"
-                  aria-label={`${item.title} ansehen`}
+                  aria-label={`${item.title} groß ansehen`}
                 >
                   <Image
                     src={item.src}
@@ -304,7 +305,7 @@ export default function Page() {
         </div>
 
         {/* Lightbox-Overlay */}
-        {active !== null && (
+        {active !== null && gallery[active] && (
           <div
             className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
             role="dialog"
@@ -369,9 +370,12 @@ export default function Page() {
       {/* ------------------------------------------------------
          Intro / Story
       ------------------------------------------------------ */}
-      <section id="intro" className="max-w-6xl mx-auto px-6 py-20">
+      <section
+        id="intro"
+        className="max-w-6xl mx-auto px-6 py-20 scroll-mt-24"
+      >
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-cinzel tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-cinzel tracking-tight mb-4 text-[var(--dark)]">
             Italienisches Ristorante mit Herz &amp; Charakter
           </h2>
         </FadeIn>
@@ -390,7 +394,7 @@ export default function Page() {
       ------------------------------------------------------ */}
       <section
         id="kueche"
-        className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+        className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8 scroll-mt-24"
       >
         <FadeIn>
           <Feature
@@ -425,7 +429,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12">
           <FadeIn>
             <div className="border-l-2 border-[var(--brand)] pl-6">
-              <h2 className="text-2xl md:text-3xl font-cinzel mb-4">
+              <h2 className="text-2xl md:text-3xl font-cinzel mb-4 text-[var(--dark)]">
                 La mia Casa – mit Herz &amp; Erfahrung
               </h2>
               <p className="text-lg text-[#444] leading-relaxed mb-4">
@@ -465,11 +469,14 @@ export default function Page() {
       {/* ------------------------------------------------------
          Kontakt / CTA
       ------------------------------------------------------ */}
-      <section id="kontakt" className="max-w-6xl mx-auto px-6 py-20">
+      <section
+        id="kontakt"
+        className="max-w-6xl mx-auto px-6 py-20 scroll-mt-24"
+      >
         <FadeIn>
           <div className="rounded-3xl bg-white/95 border border-[#e4ded6] px-8 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-[0_18px_45px_rgba(0,0,0,0.04)]">
             <div className="space-y-3">
-              <h2 className="text-2xl md:text-3xl font-cinzel mb-1">
+              <h2 className="text-2xl md:text-3xl font-cinzel mb-1 text-[var(--dark)]">
                 Lust auf einen Abend bei uns?
               </h2>
               <p className="text-lg text-[#555] max-w-xl">
@@ -477,7 +484,7 @@ export default function Page() {
                 dich.
               </p>
               <p className="mt-2 text-lg font-semibold text-[var(--dark)]">
-                +43 6649238843
+                <a href="tel:+436649238843">+43 6649238843</a>
               </p>
             </div>
 
@@ -512,7 +519,12 @@ function HighlightTile({
     const common = "h-5 w-5";
     if (icon === "calendar") {
       return (
-        <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden>
+        <svg
+          className={common}
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="M7 2v3M17 2v3"
             stroke="currentColor"
@@ -535,7 +547,12 @@ function HighlightTile({
     }
     if (icon === "pizza") {
       return (
-        <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden>
+        <svg
+          className={common}
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="M12 3c4.7 0 8.7 1.8 10 3.2L12 21 2 6.2C3.3 4.8 7.3 3 12 3Z"
             stroke="currentColor"
@@ -556,7 +573,12 @@ function HighlightTile({
     }
     // snow / Winter
     return (
-      <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden>
+      <svg
+        className={common}
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
         <path
           d="M12 2v20M4 6l16 12M20 6 4 18"
           stroke="currentColor"
@@ -598,5 +620,6 @@ function Feature({ title, text }: { title: string; text: string }) {
     </div>
   );
 }
+
 
 

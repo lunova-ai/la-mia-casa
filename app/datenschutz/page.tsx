@@ -2,148 +2,219 @@
 
 import FadeIn from "../components/FadeIn";
 
-export default function Datenschutz() {
+export default function DatenschutzPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20 space-y-20">
-
-      {/* HEADER */}
+    <div className="max-w-6xl mx-auto px-6 py-16 md:py-20 space-y-12">
+      {/* Header */}
       <FadeIn>
-        <h1 className="text-4xl md:text-5xl font-cinzel text-[var(--dark)] mb-4">
-          Datenschutz
-        </h1>
-
-        <p className="text-sm tracking-[0.25em] uppercase text-[var(--brand)] mb-6">
-          Informationen gemäß DSGVO
-        </p>
-
-        <div className="w-24 h-[1px] bg-[rgba(237,146,97,0.35)]"></div>
-      </FadeIn>
-
-
-      {/* VERANTWORTLICHE */}
-      <FadeIn>
-        <section className="space-y-2">
-          <h2 className="text-2xl font-cinzel text-[var(--dark)] mb-2">Verantwortliche Stelle</h2>
-
-          <p className="text-lg text-[#555] leading-relaxed">
-            La mia Casa Hartberg<br />
-            Karin &amp; Reinhold Leitner<br />
-            Hauptplatz 5<br />
-            8230 Hartberg<br />
-            Österreich
+        <header className="space-y-4">
+          <p className="text-xs tracking-[0.28em] uppercase text-[var(--brand)]">
+            Rechtliches
           </p>
-        </section>
-      </FadeIn>
-
-
-      {/* KONTAKT */}
-      <FadeIn>
-        <section className="space-y-2">
-          <h2 className="text-2xl font-cinzel text-[var(--dark)] mb-2">Kontakt für Datenschutzanfragen</h2>
-
-          <p className="text-lg text-[#555] leading-relaxed">
-            Telefon: <a href="tel:+436649238843" className="text-[var(--brand)] hover:text-[var(--brand-dark)]">+43 6649238843</a><br />
-            E-Mail: <a href="mailto:info@la-mia-casa.app" className="text-[var(--brand)] hover:text-[var(--brand-dark)]">info@la-mia-casa.app</a>
+          <h1 className="text-3xl md:text-4xl font-cinzel tracking-tight text-[var(--dark)]">
+            Datenschutzerklärung
+          </h1>
+          <p className="text-base md:text-lg text-[#555] max-w-3xl">
+            Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen.
+            Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der
+            gesetzlichen Bestimmungen (DSGVO, DSG, TKG&nbsp;2021).
           </p>
-        </section>
+        </header>
       </FadeIn>
 
-
-      {/* ALLGEMEINE DATENVERARBEITUNG */}
+      {/* Verantwortliche Stelle */}
       <FadeIn>
         <section className="space-y-3">
-          <h2 className="text-2xl font-cinzel text-[var(--dark)] mb-2">Allgemeines</h2>
-
-          <p className="text-lg text-[#555] leading-relaxed">
-            Wir verarbeiten personenbezogene Daten ausschließlich im Rahmen der gesetzlichen
-            Bestimmungen (DSGVO, DSG, TKG). Diese Website verwendet keine Tracking-Cookies,
-            keine Analyse-Tools und sammelt keine personenbezogenen Daten ohne aktive
-            Kontaktaufnahme durch die Nutzer.
+          <h2 className="text-2xl font-cinzel text-[var(--dark)]">
+            1. Verantwortliche Stelle
+          </h2>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Verantwortlich für die Verarbeitung Ihrer personenbezogenen Daten
+            auf dieser Website ist:
           </p>
+          <div className="text-sm md:text-base text-[var(--dark)] leading-relaxed">
+            <p className="font-semibold">La mia Casa Hartberg</p>
+            <p>Karin &amp; Reinhold Leitner</p>
+            <p>Hauptplatz 5</p>
+            <p>8230 Hartberg</p>
+            <p>Österreich</p>
+            <p className="mt-2">
+              Telefon:{" "}
+              <a href="tel:+436649238843" className="text-[var(--brand)]">
+                +43 664 9238843
+              </a>
+            </p>
+          </div>
         </section>
       </FadeIn>
 
-
-      {/* SERVER LOGFILES */}
+      {/* Allgemeines */}
       <FadeIn>
         <section className="space-y-3">
-          <h2 className="text-2xl font-cinzel text-[var(--dark)] mb-2">Server-Logfiles</h2>
-
-          <p className="text-lg text-[#555] leading-relaxed">
-            Beim Besuch unserer Website werden technisch notwendige Daten automatisch durch
-            den Server erfasst (IP-Adresse, Datum/Uhrzeit, Browsertyp). Diese Daten dienen
-            ausschließlich der technischen Sicherheit, werden nicht mit anderen Daten
-            verknüpft und automatisch nach kurzer Zeit gelöscht.
+          <h2 className="text-2xl font-cinzel text-[var(--dark)]">
+            2. Allgemeines zur Datenverarbeitung
+          </h2>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Wir verarbeiten personenbezogene Daten ausschließlich im Rahmen der
+            gesetzlichen Bestimmungen (DSGVO, DSG, TKG&nbsp;2021).
+          </p>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Diese Website verwendet{" "}
+            <strong>keine Analyse-Tools (z.&nbsp;B. Google Analytics)</strong>,
+            keine Marketing-Cookies und keine Datenbank. Personenbezogene Daten
+            fallen nur an, wenn Sie aktiv Kontakt mit uns aufnehmen oder
+            eingebettete Dienste (z.&nbsp;B. Google Maps) nutzen.
           </p>
         </section>
       </FadeIn>
 
-
-      {/* KONTAKT PER E-MAIL / TELEFON / WHATSAPP */}
+      {/* Server-Logfiles / Hosting */}
       <FadeIn>
         <section className="space-y-3">
-          <h2 className="text-2xl font-cinzel text-[var(--dark)] mb-2">Kontaktaufnahme</h2>
-
-          <p className="text-lg text-[#555] leading-relaxed">
-            Wenn Sie uns telefonisch, per E-Mail oder über WhatsApp kontaktieren, verarbeiten
-            wir die von Ihnen freiwillig übermittelten Daten ausschließlich zur Bearbeitung
-            Ihrer Anfrage. Diese Daten werden nicht an Dritte weitergegeben.
+          <h2 className="text-2xl font-cinzel text-[var(--dark)]">
+            3. Server-Logfiles (Hosting)
+          </h2>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Unsere Website wird bei einem externen Hosting-Dienstleister
+            betrieben. Beim Aufruf unserer Seiten werden automatisch technische
+            Daten in sogenannten Server-Logfiles verarbeitet, zum Beispiel:
+          </p>
+          <ul className="list-disc list-inside text-sm md:text-base text-[#555] space-y-1">
+            <li>IP-Adresse</li>
+            <li>Datum und Uhrzeit des Zugriffs</li>
+            <li>aufgerufene Seite/Datei</li>
+            <li>Browsertyp und Betriebssystem</li>
+          </ul>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Diese Verarbeitung ist technisch notwendig, um die Website
+            bereitzustellen und die Sicherheit zu gewährleisten. Rechtsgrundlage
+            ist unser berechtigtes Interesse gemäß Art. 6 Abs. 1 lit. f DSGVO.
+            Die Logdaten werden vom Hosting-Dienstleister in der Regel nach
+            kurzer Zeit automatisch wieder gelöscht.
           </p>
         </section>
       </FadeIn>
 
-
-      {/* EINBINDUNG VON GOOGLE MAPS */}
+      {/* Kontakt: Telefon & WhatsApp */}
       <FadeIn>
         <section className="space-y-3">
-          <h2 className="text-2xl font-cinzel text-[var(--dark)] mb-2">Google Maps</h2>
-
-          <p className="text-lg text-[#555] leading-relaxed">
-            Unsere Website nutzt eine eingebettete Karte (Google Maps). Dabei können durch
-            Google personenbezogene Daten verarbeitet werden. Mit Nutzung der Karte erklären
-            Sie sich damit einverstanden, dass Google Ihre Daten gemäß der eigenen
-            Datenschutzerklärung verarbeitet (Google LLC, USA).
+          <h2 className="text-2xl font-cinzel text-[var(--dark)]">
+            4. Kontakt (Telefon &amp; WhatsApp)
+          </h2>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Wenn Sie uns telefonisch oder per WhatsApp kontaktieren, verarbeiten
+            wir die von Ihnen freiwillig mitgeteilten Daten (z.&nbsp;B. Name,
+            Telefonnummer, Inhalt der Nachricht) ausschließlich zur Bearbeitung
+            Ihrer Anfrage bzw. Reservierung.
+          </p>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO
+            (Vertragsanbahnung/-erfüllung, z.&nbsp;B. Reservierungen) sowie
+            Art. 6 Abs. 1 lit. f DSGVO (unser berechtigtes Interesse an einer
+            effizienten Kommunikation).
+          </p>
+          <h3 className="text-lg font-semibold text-[var(--dark)] mt-4">
+            WhatsApp
+          </h3>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Bei Kontaktaufnahme über WhatsApp werden Daten an den Anbieter
+            (WhatsApp / Meta) übermittelt. Dabei kann es zu einer Übermittlung
+            von Daten in Drittländer (z.&nbsp;B. USA) kommen. Auf Umfang und
+            Dauer der Speicherung haben wir keinen Einfluss. Die Nutzung ist
+            freiwillig; alternativ können Sie uns jederzeit telefonisch
+            erreichen.
+          </p>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Wir speichern Kontaktdaten nur so lange, wie dies für die Abwicklung
+            der Anfrage erforderlich ist.
           </p>
         </section>
       </FadeIn>
 
-
-      {/* IHRE RECHTE */}
+      {/* Google Maps */}
       <FadeIn>
         <section className="space-y-3">
-          <h2 className="text-2xl font-cinzel text-[var(--dark)] mb-2">Ihre Rechte</h2>
-
-          <p className="text-lg text-[#555] leading-relaxed">
-            Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung,
-            Einschränkung, Datenübertragbarkeit und Widerruf Ihrer Einwilligung.
-            Wenn Sie glauben, dass die Verarbeitung Ihrer Daten rechtswidrig ist, können
-            Sie Beschwerde bei der Datenschutzbehörde (Österreich) einreichen.
+          <h2 className="text-2xl font-cinzel text-[var(--dark)]">
+            5. Google Maps
+          </h2>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Auf unserer Kontaktseite ist eine Karte des Dienstes Google Maps
+            eingebettet, um Ihnen die Anfahrt zu erleichtern. Beim Laden der
+            Karte werden Daten (z.&nbsp;B. IP-Adresse, technische Browserdaten
+            und ggf. Standortdaten) an Google übertragen und dort gemäß der
+            Datenschutzerklärung von Google verarbeitet. Google kann Daten auch
+            in Drittländer (insbesondere die USA) übermitteln.
+          </p>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Die Nutzung von Google Maps erfolgt auf Grundlage unseres
+            berechtigten Interesses gemäß Art. 6 Abs. 1 lit. f DSGVO, unseren
+            Standort benutzerfreundlich darzustellen. Wenn Sie nicht möchten,
+            dass Google Daten über Sie verarbeitet, nutzen Sie die Karte bitte
+            nicht.
           </p>
         </section>
       </FadeIn>
 
-
-      {/* DATENSCHUTZBEHÖRDE */}
+      {/* Cookies */}
       <FadeIn>
         <section className="space-y-3">
-          <h2 className="text-2xl font-cinzel text-[var(--dark)] mb-2">Zuständige Aufsichtsbehörde</h2>
-
-          <p className="text-lg text-[#555] leading-relaxed">
-            Österreichische Datenschutzbehörde<br />
-            Barichgasse 40–42<br />
-            1030 Wien
+          <h2 className="text-2xl font-cinzel text-[var(--dark)]">
+            6. Cookies
+          </h2>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Unsere Website setzt derzeit keine Tracking- oder Marketing-Cookies
+            ein. Technisch notwendige Cookies können verwendet werden, um die
+            Seite korrekt anzuzeigen; diese dienen ausschließlich der
+            Funktionsfähigkeit der Website und werden nicht für Analyse- oder
+            Werbezwecke genutzt.
           </p>
         </section>
       </FadeIn>
 
-
-      {/* ABSCHLUSS */}
+      {/* Rechte */}
       <FadeIn>
-        <p className="text-center text-sm text-[#888]">
-          Stand: {new Date().getFullYear()}
-        </p>
+        <section className="space-y-3">
+          <h2 className="text-2xl font-cinzel text-[var(--dark)]">
+            7. Ihre Rechte
+          </h2>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Ihnen stehen im Rahmen der DSGVO insbesondere folgende Rechte zu:
+          </p>
+          <ul className="list-disc list-inside text-sm md:text-base text-[#555] space-y-1">
+            <li>Recht auf Auskunft über Ihre Daten</li>
+            <li>Recht auf Berichtigung unrichtiger Daten</li>
+            <li>Recht auf Löschung (&bdquo;Recht auf Vergessenwerden&ldquo;)</li>
+            <li>Recht auf Einschränkung der Verarbeitung</li>
+            <li>Recht auf Datenübertragbarkeit</li>
+            <li>Recht auf Widerspruch gegen bestimmte Verarbeitungen</li>
+          </ul>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Außerdem können Sie erteilte Einwilligungen jederzeit mit Wirkung
+            für die Zukunft widerrufen. Zur Ausübung Ihrer Rechte können Sie
+            sich jederzeit an uns wenden – am einfachsten telefonisch oder
+            persönlich im Lokal (Kontaktdaten siehe oben).
+          </p>
+          <p className="text-sm md:text-base text-[#555] leading-relaxed">
+            Sie haben außerdem das Recht, Beschwerde bei einer
+            Aufsichtsbehörde einzureichen. In Österreich ist dies die
+            Österreichische Datenschutzbehörde (www.dsb.gv.at).
+          </p>
+        </section>
       </FadeIn>
 
+      {/* Stand */}
+      <FadeIn>
+        <section className="space-y-2 text-xs md:text-sm text-[#777]">
+          <p>
+            Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit
+            sie stets den aktuellen rechtlichen Anforderungen entspricht oder
+            um Änderungen unserer Leistungen in der Datenschutzerklärung
+            umzusetzen.
+          </p>
+          <p>Stand: 2026</p>
+        </section>
+      </FadeIn>
     </div>
   );
 }
+

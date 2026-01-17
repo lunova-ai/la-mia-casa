@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
 
 export default function MobileMenu() {
@@ -8,16 +8,25 @@ export default function MobileMenu() {
 
   /* ESC Close + Scroll Lock */
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-      const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-      window.addEventListener("keydown", onKey);
+    if (!open) return;
 
-      return () => {
-        window.removeEventListener("keydown", onKey);
-        document.body.style.overflow = "";
-      };
-    }
+    // Scroll sperren
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    // ESC schließt Menü
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
   }, [open]);
 
   /* Event Listener für externen Button */
@@ -57,6 +66,7 @@ export default function MobileMenu() {
           </span>
 
           <button
+            type="button"
             aria-label="Menü schließen"
             onClick={() => setOpen(false)}
             className="text-3xl text-[var(--dark)] active:scale-90"
@@ -66,28 +76,36 @@ export default function MobileMenu() {
         </div>
 
         {/* Linie */}
-        <div className="w-full h-[1px] bg-[rgba(237,146,97,0.35)] mb-10"></div>
+        <div className="w-full h-[1px] bg-[rgba(237,146,97,0.35)] mb-10" />
 
         {/* NAVIGATION */}
         <nav className="flex flex-col gap-7 text-xl font-medium text-[var(--dark)]">
-          <MobileLink href="/speisekarte" close={() => setOpen(false)}>Speisekarte</MobileLink>
-          <MobileLink href="/team" close={() => setOpen(false)}>Über uns</MobileLink>
-          <MobileLink href="/kontakt" close={() => setOpen(false)}>Kontakt</MobileLink>
+          <MobileLink href="/speisekarte" close={() => setOpen(false)}>
+            Speisekarte
+          </MobileLink>
+          <MobileLink href="/team" close={() => setOpen(false)}>
+            Über uns
+          </MobileLink>
+          <MobileLink href="/extras" close={() => setOpen(false)}>
+            Extras
+          </MobileLink>
+          <MobileLink href="/kontakt" close={() => setOpen(false)}>
+            Kontakt
+          </MobileLink>
         </nav>
       </aside>
     </>
   );
 }
 
-
-/* ------ Edler Nav-Link mit Underline Animation ------ */
+/* ------ Edler Nav-Link mit Underline-Animation ------ */
 function MobileLink({
   href,
   children,
   close,
 }: {
   href: string;
-  children: string;
+  children: ReactNode;
   close: () => void;
 }) {
   return (
@@ -106,4 +124,3 @@ function MobileLink({
     </Link>
   );
 }
-
