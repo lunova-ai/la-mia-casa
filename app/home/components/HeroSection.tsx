@@ -48,30 +48,52 @@ export function HeroSection({
 
             {/* HIGHLIGHTS */}
             <div className="rounded-2xl border border-[#e5e1da] bg-white/75 px-5 py-5 md:px-6 md:py-6 shadow-[0_18px_45px_rgba(0,0,0,0.04)]">
-              <p className="text-xs tracking-[0.22em] uppercase text-[var(--brand)] mb-4">
-                Highlights
-              </p>
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <p className="text-xs tracking-[0.22em] uppercase text-[var(--brand)]">
+                  Highlights
+                </p>
+
+                {/* kleine “Klick mich” Hilfe (subtil) */}
+                <span className="hidden sm:inline-flex text-[11px] tracking-[0.18em] uppercase text-[#666]">
+                  Tipp: Antippen für Details ✨
+                </span>
+              </div>
 
               <div className="grid gap-4 md:grid-cols-2">
-                <HighlightTile
-                  kicker="Special"
-                  title="Kindergeburtstag 🎉"
-                  meta="Ab 5 Kindern"
-                  text="Feiern, lachen & Pizza genießen."
-                  hint="🎈 Klick & lass die Party starten"
-                  icon="party"
-                  onClick={onOpenBirthday}
-                />
+                {/* Kindergeburtstag */}
+                <div className="relative">
+                  {/* Mini-Badge: erhöht Klickrate, weil “Event/Info” sofort sichtbar */}
+                  <span className="pointer-events-none absolute -top-2 -right-2 z-10 inline-flex items-center rounded-full bg-[var(--brand)]/15 text-[var(--brand-dark)] border border-[var(--brand)]/20 px-2.5 py-1 text-[11px] font-semibold shadow-sm">
+                    🎈 Party-Details
+                  </span>
 
-                <HighlightTile
-                  kicker="Fix jede Woche"
-                  title="Mädlsabend 🍸"
-                  meta="Donnerstag ab 16 Uhr"
-                  text="Manchmal ist das die beste Therapie."
-                  hint="✨ Night-Vibes entdecken"
-                  icon="cocktail"
-                  onClick={onOpenGirlsNight}
-                />
+                  <HighlightTile
+                    kicker="Special"
+                    title="Kindergeburtstag 🎉"
+                    meta="Ab 5 Kindern"
+                    text="Feiern, lachen & Pizza genießen."
+                    hint="🎈 Klick & lass die Party starten"
+                    icon="party"
+                    onClick={onOpenBirthday}
+                  />
+                </div>
+
+                {/* Mädlsabend */}
+                <div className="relative">
+                  <span className="pointer-events-none absolute -top-2 -right-2 z-10 inline-flex items-center rounded-full bg-white/80 text-[#5a2896] border border-[#e5e1da] px-2.5 py-1 text-[11px] font-semibold shadow-sm">
+                    🍸 Jeden Do · 16 Uhr
+                  </span>
+
+                  <HighlightTile
+                    kicker="Fix jede Woche"
+                    title="Mädlsabend 🍸"
+                    meta="Donnerstag ab 16 Uhr"
+                    text="Manchmal ist das die beste Therapie."
+                    hint="✨ Night-Vibes entdecken"
+                    icon="cocktail"
+                    onClick={onOpenGirlsNight}
+                  />
+                </div>
               </div>
 
               <div className="mt-5 text-sm md:text-base text-[#555]">
@@ -138,3 +160,4 @@ export function HeroSection({
     </section>
   );
 }
+

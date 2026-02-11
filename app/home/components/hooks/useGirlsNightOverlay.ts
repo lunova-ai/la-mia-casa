@@ -19,14 +19,21 @@ export function useGirlsNightOverlay(opts: {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setShowGirlsNight(false);
     };
+
     window.addEventListener("keydown", onKeyDown);
 
+    // Animation starten
     setAnimateBubbles(true);
+
+    // Nach durationMs stoppen (Overlay bleibt offen)
     const timer = window.setTimeout(() => setAnimateBubbles(false), durationMs);
 
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       window.clearTimeout(timer);
+      // Wichtig: beim Schließen sofort stoppen, damit nix "nachläuft"
+      setAnimateBubbles(false);
     };
   }, [showGirlsNight, setShowGirlsNight, setAnimateBubbles, durationMs]);
 }
+

@@ -32,9 +32,12 @@ export default function Page() {
   const [showGirlsNight, setShowGirlsNight] = useState(false);
   const [animateBubbles, setAnimateBubbles] = useState(false);
 
+  // Lightbox Controls
   const close = useCallback(() => setActive(null), []);
   const prev = useCallback(() => {
-    setActive((v) => (v === null ? 0 : (v - 1 + gallery.length) % gallery.length));
+    setActive((v) =>
+      v === null ? 0 : (v - 1 + gallery.length) % gallery.length
+    );
   }, [gallery.length]);
   const next = useCallback(() => {
     setActive((v) => (v === null ? 0 : (v + 1) % gallery.length));
@@ -48,6 +51,7 @@ export default function Page() {
     onNext: next,
   });
 
+  // Overlays
   useBirthdayOverlay({
     showBirthday,
     setShowBirthday,
@@ -62,21 +66,27 @@ export default function Page() {
     durationMs: 9000,
   });
 
+  // Öffnen/Schließen sauber kapseln (leichter zu warten)
+  const openBirthday = useCallback(() => setShowBirthday(true), []);
+  const openGirlsNight = useCallback(() => setShowGirlsNight(true), []);
+  const closeBirthday = useCallback(() => setShowBirthday(false), []);
+  const closeGirlsNight = useCallback(() => setShowGirlsNight(false), []);
+
   return (
     <div className="w-full flex flex-col bg-[var(--cream)]">
-      <HeroSection
-        onOpenBirthday={() => setShowBirthday(true)}
-        onOpenGirlsNight={() => setShowGirlsNight(true)}
-      />
-
-     
+      <HeroSection onOpenBirthday={openBirthday} onOpenGirlsNight={openGirlsNight} />
 
       <InfoBand />
 
       <GallerySection gallery={gallery} onOpen={setActive} />
 
       {active !== null && gallery[active] && (
-        <Lightbox item={gallery[active]} onClose={close} onPrev={prev} onNext={next} />
+        <Lightbox
+          item={gallery[active]}
+          onClose={close}
+          onPrev={prev}
+          onNext={next}
+        />
       )}
 
       <IntroSection />
@@ -87,13 +97,13 @@ export default function Page() {
       <BirthdayOverlay
         open={showBirthday}
         animateBalloons={animateBalloons}
-        onClose={() => setShowBirthday(false)}
+        onClose={closeBirthday}
       />
 
       <GirlsNightOverlay
         open={showGirlsNight}
         animateBubbles={animateBubbles}
-        onClose={() => setShowGirlsNight(false)}
+        onClose={closeGirlsNight}
       />
     </div>
   );

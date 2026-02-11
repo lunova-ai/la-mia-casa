@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useEffect, type CSSProperties } from "react";
 
 export function GirlsNightOverlay({
   open,
@@ -9,6 +9,22 @@ export function GirlsNightOverlay({
   animateBubbles: boolean;
   onClose: () => void;
 }) {
+  // 🔒 Globales Overlay-Flag (für WhatsApp Button & generell UI)
+  useEffect(() => {
+    if (!open) return;
+
+    const prev = document.body.dataset.overlay;
+    document.body.dataset.overlay = "open";
+    window.dispatchEvent(new Event("overlay:change"));
+
+    return () => {
+      if (prev === undefined) delete document.body.dataset.overlay;
+      else document.body.dataset.overlay = prev;
+
+      window.dispatchEvent(new Event("overlay:change"));
+    };
+  }, [open]);
+
   if (!open) return null;
 
   return (
@@ -23,7 +39,10 @@ export function GirlsNightOverlay({
         type="button"
         className="overlay-close overlay-close--glass"
         aria-label="Schließen"
-        onClick={onClose}
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
       >
         ✕
       </button>
@@ -33,13 +52,13 @@ export function GirlsNightOverlay({
           Mädlsabend
         </p>
 
-        <h2 className="girls-title mt-2 text-2xl md:text-3xl font-cinzel tracking-tight">
+        <h2 className="girls-title mt-2 text-2xl md:text-3xl font-cinzel">
           🍸 Jeden Donnerstag
         </h2>
 
         <p className="girls-text mt-3 text-base md:text-lg leading-relaxed">
           Ab <span className="font-semibold">16 Uhr</span> – gratis Cocktail{" "}
-          <span className="girls-muted">(mit &amp; ohne Alk.)</span> bei uns an der Bar.
+          <span className="girls-muted">(mit &amp; ohne Alk.)</span>
         </p>
 
         <div className="girls-box mt-5 text-left">
@@ -54,11 +73,11 @@ export function GirlsNightOverlay({
           </p>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-3 justify-center">
-          <a href="tel:+436649238843" className="btn-brand text-sm md:text-base">
+        <div className="mt-6 flex flex-wrap gap-3 justify-center sticky bottom-0 bg-black/35 backdrop-blur -mx-[1.1rem] px-[1.1rem] py-3 border-t border-white/10">
+          <a href="tel:+436649238843" className="btn-brand">
             Jetzt anrufen
           </a>
-          <a href="/kontakt" className="btn-outline text-sm md:text-base">
+          <a href="/kontakt" className="btn-outline">
             Anfrage senden
           </a>
         </div>
@@ -70,24 +89,24 @@ export function GirlsNightOverlay({
 
       {animateBubbles && (
         <div className="bubble-layer" aria-hidden="true">
-          {Array.from({ length: 14 }).map((_, i) => {
-            const size = 18 + Math.random() * 42;
-            const left = `${Math.random() * 92}%`;
-            const duration = `${7 + Math.random() * 6}s`;
-            const drift = `${20 + Math.random() * 60}px`;
-            const delay = `${Math.random() * 1.5}s`;
+          {Array.from({ length: 16 }).map((_, i) => {
+            const size = 16 + Math.random() * 55;
+
             return (
               <div
                 key={i}
-                className="bubble"
+                className="bubble bubble-lux"
                 style={
                   {
-                    left,
+                    left: `${Math.random() * 95}%`,
                     width: `${size}px`,
                     height: `${size}px`,
-                    animationDuration: duration,
-                    animationDelay: delay,
-                    ["--drift" as any]: drift,
+                    animationDuration: `${9 + Math.random() * 7}s`,
+                    animationDelay: `${Math.random() * 2}s`,
+
+                    ["--dx1" as any]: `${-30 + Math.random() * 60}px`,
+                    ["--dx2" as any]: `${-50 + Math.random() * 100}px`,
+                    ["--dx3" as any]: `${-40 + Math.random() * 80}px`,
                   } as CSSProperties
                 }
               />

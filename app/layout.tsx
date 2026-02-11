@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de">
-      <body className="min-h-screen flex flex-col bg-cream text-dark">
+      <body className="min-h-screen flex flex-col bg-[var(--cream)] text-[var(--dark)]">
         {/* HEADER */}
         <header
           className="
@@ -109,7 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* CONTENT */}
         <main className="flex-1">{children}</main>
 
-        {/* WHATSAPP BUTTON */}
+        {/* WHATSAPP BUTTON (unter Overlays, aber über Content) */}
         <WhatsAppButton phone="436649238843" />
 
         {/* FOOTER */}
@@ -214,6 +214,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
 
 
 

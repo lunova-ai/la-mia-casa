@@ -1,7 +1,6 @@
 /* ------------------------------------------------------
    SELF-HOSTED FONTS (kein Google-Fonts-Request)
 ------------------------------------------------------ */
-
 @font-face {
   font-family: "AlluraLocal";
   src: url("/fonts/Allura/Allura-Regular.ttf") format("truetype");
@@ -43,21 +42,25 @@
 @tailwind utilities;
 
 /* ------------------------------------------------------
-   ROOT VARIABLES – Brand Colors
+   ROOT VARIABLES – Brand Colors + Tokens
 ------------------------------------------------------ */
 :root {
-  --brand: #ed9261; /* Hauptfarbe (Lokal-Wandfarbe) */
-  --brand-dark: #d87842; /* dunklere Variante */
-  --dark: #1a1a1a; /* Text */
-  --cream: #faf8f6; /* Hintergrund */
+  --brand: #ed9261;
+  --brand-dark: #d87842;
+  --dark: #1a1a1a;
+  --cream: #faf8f6;
   --white: #ffffff;
+
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.04);
+  --shadow-pop: 0 25px 60px rgba(0, 0, 0, 0.25);
 }
 
 /* ------------------------------------------------------
    BRAND FONTS
 ------------------------------------------------------ */
-
-/* Logo in Cinzel – eleganter, kompakter */
 .font-logo {
   font-family: "CinzelLocal", "Times New Roman", serif;
   font-weight: 500;
@@ -65,13 +68,11 @@
   text-transform: none;
 }
 
-/* Serif-Headlines mit Cinzel */
 .font-cinzel {
   font-family: "CinzelLocal", "Times New Roman", serif;
   letter-spacing: 0.5px;
 }
 
-/* Script-Schrift (falls du Allura mal brauchst) */
 .font-allura {
   font-family: "AlluraLocal", "Allura", "Brush Script MT", cursive;
   letter-spacing: 0.04em;
@@ -116,7 +117,6 @@ h3 {
   position: relative;
   padding-bottom: 2px;
 }
-
 .nav-link::after {
   content: "";
   position: absolute;
@@ -127,7 +127,6 @@ h3 {
   background-color: var(--brand);
   transition: width 260ms ease;
 }
-
 .nav-link:hover::after {
   width: 100%;
 }
@@ -143,66 +142,57 @@ h3 {
     rgba(237, 146, 97, 0.05) 100%
   );
 }
-
 .header-line {
   box-shadow: 0 1px 0 rgba(237, 146, 97, 0.4);
 }
 
 /* ------------------------------------------------------
-   BUTTONS – Brand Color
+   BUTTONS
 ------------------------------------------------------ */
 .btn-brand {
-  @apply px-6 py-3 rounded-lg font-semibold shadow-md transition duration-300 text-white;
+  @apply px-6 py-3 rounded-lg font-semibold shadow-md transition duration-300 text-white inline-flex items-center justify-center;
   background-color: var(--brand);
 }
-
 .btn-brand:hover {
   background-color: var(--brand-dark);
   @apply shadow-lg;
 }
 
 .btn-outline {
-  @apply px-6 py-3 rounded-lg border text-[var(--dark)] font-medium transition duration-300;
+  @apply px-6 py-3 rounded-lg border text-[var(--dark)] font-medium transition duration-300 inline-flex items-center justify-center;
   border-color: var(--dark);
 }
-
 .btn-outline:hover {
   background-color: var(--dark);
   color: var(--cream);
 }
 
 .btn-light {
-  @apply px-6 py-3 rounded-lg bg-white text-[var(--dark)] font-medium shadow-sm transition duration-300;
+  @apply px-6 py-3 rounded-lg bg-white text-[var(--dark)] font-medium shadow-sm transition duration-300 inline-flex items-center justify-center;
 }
-
 .btn-light:hover {
   background-color: #f3f3f3;
 }
 
-/* Horizontale Scrollbar ausblenden (für Pill-Navigation) */
+/* Horizontale Scrollbar ausblenden */
 .scrollbar-hide {
-  -ms-overflow-style: none; /* IE und Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 /* ------------------------------------------------------
-   CARDS
+   CARDS / INPUTS
 ------------------------------------------------------ */
 .card {
   @apply bg-white/70 backdrop-blur border border-[#ddd] rounded-2xl p-6 shadow-sm transition-all duration-300;
 }
-
 .card:hover {
   @apply shadow-xl;
 }
 
-/* ------------------------------------------------------
-   INPUTS
------------------------------------------------------- */
 .input {
   @apply w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2;
   border-color: #ddd;
@@ -210,383 +200,8 @@ h3 {
 }
 
 /* ======================================================
-   SPECIALS – Cards, Overlays & Effects
+   SPECIALS – Premium Cards
 ====================================================== */
-
-/* ---------- Shared Overlay Base ---------- */
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-}
-
-.overlay--dark {
-  background: rgba(0, 0, 0, 0.65);
-}
-
-.overlay--glow {
-  background:
-    radial-gradient(circle at 25% 20%, rgba(255,102,217,0.18), transparent 55%),
-    radial-gradient(circle at 80% 35%, rgba(168,85,247,0.16), transparent 60%),
-    radial-gradient(circle at 55% 90%, rgba(59,130,255,0.10), transparent 62%),
-    rgba(0,0,0,0.72);
-  backdrop-filter: blur(7px);
-}
-
-.overlay-close {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  font-size: 1.7rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-}
-
-/* ---------- Popup Base ---------- */
-
-.popup {
-  position: relative;
-  z-index: 5;
-  width: min(520px, 92vw);
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 2.4rem 2.1rem;
-  border-radius: 26px;
-  text-align: center;
-  animation: sheetUp 0.25s ease-out;
-}
-
-.popup--light {
-  background: #fff;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-}
-
-.popup--glass {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
-  color: rgba(255,255,255,0.92);
-}
-
-/* ---------- Kindergeburtstag: Ballons ---------- */
-
-.balloon-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.balloon {
-  position: absolute;
-  width: 44px;
-  height: 58px;
-  border-radius: 50% 50% 46% 46%;
-  background: radial-gradient(circle at 30% 28%, #fff, var(--balloon));
-  filter: drop-shadow(0 12px 18px rgba(0,0,0,0.22));
-  animation: balloon-fly ease-in-out infinite;
-}
-
-.balloon::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 46px;
-  width: 2px;
-  height: 80px;
-  background: rgba(0,0,0,0.35);
-  transform: translateX(-50%);
-}
-
-@keyframes balloon-fly {
-  0%   { transform: translate(0,0) rotate(-6deg); }
-  50%  { transform: translate(var(--drift), -14px) rotate(6deg); }
-  100% { transform: translate(0,0) rotate(-6deg); }
-}
-
-/* ---------- Mädlsabend: Bubbles ---------- */
-
-.bubble-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.bubble {
-  position: absolute;
-  bottom: -60px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.24);
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(255,255,255,0.06));
-  animation: bubble-float ease-in-out infinite;
-}
-
-@keyframes bubble-float {
-  0%   { transform: translateY(0); opacity: 0; }
-  20%  { opacity: 1; }
-  100% { transform: translateY(-120vh); opacity: 0; }
-}
-
-/* ---------- Mobile Bottom Sheet ---------- */
-
-@media (max-width: 640px) {
-  .overlay {
-    align-items: flex-end;
-    padding: 16px;
-  }
-
-  .popup {
-    width: 100%;
-    border-radius: 22px;
-    padding: 1.6rem 1.4rem;
-  }
-
-  .overlay-close {
-    top: 14px;
-    right: 14px;
-  }
-}
-
-/* ---------- Entry Animation ---------- */
-
-@keyframes sheetUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
-}
-/* ------------------------------------------------------
-   SPECIAL CARDS – HOVER MICRO INTERACTIONS (DESKTOP)
------------------------------------------------------- */
-
-@media (hover: hover) and (pointer: fine) {
-  .special-card {
-    transition:
-      transform 260ms ease,
-      box-shadow 260ms ease;
-  }
-
-  .special-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 30px 70px rgba(0,0,0,0.12);
-  }
-
-  /* Kindergeburtstag Hover */
-  .special-card:hover .special-card-bg {
-    filter: brightness(1.08) saturate(1.1);
-  }
-
-  .special-card:hover .special-poster-kids {
-    box-shadow: 0 22px 55px rgba(237,146,97,0.25);
-    transform: scale(1.02);
-    transition: transform 260ms ease, box-shadow 260ms ease;
-  }
-
-  /* Mädlsabend Hover */
-  .special-card:hover .special-card-bg.girls {
-    filter: brightness(1.1) saturate(1.15);
-  }
-
-  .special-card:hover .special-poster-girls {
-    box-shadow: 0 26px 65px rgba(168,85,247,0.35);
-    transform: scale(1.02);
-    transition: transform 260ms ease, box-shadow 260ms ease;
-  }
-
-  /* CTA Text reagiert */
-  .special-card:hover .special-link {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-/* ======================================================
-   OVERLAY SYSTEM (Variante 1)
-====================================================== */
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 2100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-}
-
-.overlay--dark {
-  background: rgba(0, 0, 0, 0.65);
-}
-
-.overlay--glow {
-  background:
-    radial-gradient(circle at 25% 20%, rgba(255,102,217,0.18), transparent 55%),
-    radial-gradient(circle at 80% 35%, rgba(168,85,247,0.16), transparent 60%),
-    radial-gradient(circle at 55% 90%, rgba(59,130,255,0.10), transparent 62%),
-    rgba(0,0,0,0.72);
-  backdrop-filter: blur(7px);
-}
-
-.overlay-close {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  font-size: 1.7rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 2200;
-  padding: 10px;
-}
-
-.overlay-close--light {
-  color: #fff;
-}
-
-.overlay-close--glass {
-  color: rgba(255,255,255,0.92);
-}
-
-.popup {
-  position: relative;
-  z-index: 2150;
-  width: min(520px, 92vw);
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 2.4rem 2.1rem;
-  border-radius: 26px;
-  text-align: center;
-  animation: sheetUp 0.25s ease-out;
-}
-
-.popup--light {
-  background: #fff;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-}
-
-.popup--glass {
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
-  color: rgba(255,255,255,0.92);
-}
-
-/* Mobile: Bottom Sheet */
-@media (max-width: 640px) {
-  .overlay {
-    align-items: flex-end;
-    padding: 16px;
-  }
-
-  .popup {
-    width: 100%;
-    border-radius: 22px;
-    padding: 1.6rem 1.4rem;
-    max-height: 88vh;
-  }
-
-  .overlay-close {
-    top: 12px;
-    right: 12px;
-  }
-}
-
-@keyframes sheetUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
-}
-
-/* ======================================================
-   EFFECT LAYERS
-====================================================== */
-
-.balloon-layer,
-.bubble-layer {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 2120;
-}
-
-/* Balloons */
-.balloon {
-  position: absolute;
-  top: 15%;
-  width: 44px;
-  height: 58px;
-  border-radius: 50% 50% 46% 46%;
-  opacity: 0.95;
-  background: radial-gradient(circle at 30% 28%, #fff, var(--balloon, var(--brand)));
-  filter: drop-shadow(0 12px 18px rgba(0,0,0,0.22));
-  will-change: transform;
-  animation: balloon-fly ease-in-out infinite;
-}
-
-.balloon::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 46px;
-  width: 2px;
-  height: 80px;
-  background: rgba(0,0,0,0.35);
-  transform: translateX(-50%);
-  border-radius: 999px;
-}
-
-@keyframes balloon-fly {
-  0%   { transform: translate(0, 0) rotate(-6deg); }
-  50%  { transform: translate(var(--drift, 40px), -14px) rotate(6deg); }
-  100% { transform: translate(0, 0) rotate(-6deg); }
-}
-
-/* Bubbles */
-.bubble {
-  position: absolute;
-  bottom: -60px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.24);
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(255,255,255,0.06));
-  filter: blur(0.1px);
-  will-change: transform, opacity;
-  animation: bubble-float ease-in-out infinite;
-}
-
-@keyframes bubble-float {
-  0%   { transform: translate(0, 0); opacity: 0; }
-  15%  { opacity: 1; }
-  100% { transform: translate(var(--drift, 40px), -120vh); opacity: 0; }
-}
-
-/* Girls typography helpers (weil du sie im JSX nutzt) */
-.girls-eyebrow { color: rgba(255, 209, 245, 0.9); }
-.girls-title { color: rgba(255,255,255,0.96); }
-.girls-text { color: rgba(255,255,255,0.90); }
-.girls-muted { color: rgba(235, 230, 245, 0.75); }
-
-.girls-box {
-  border-radius: 18px;
-  padding: 14px 14px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.16);
-}
-
-.girls-link {
-  color: rgba(255, 209, 245, 0.92);
-  font-weight: 800;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-/* ======================================================
-   SPECIALS – Premium Cards (für SpecialsSection)
-====================================================== */
-
 .special-card {
   position: relative;
   overflow: hidden;
@@ -598,17 +213,18 @@ h3 {
   inset: -40px;
   border-radius: 28px;
   background:
-    radial-gradient(circle at 20% 15%, rgba(237,146,97,0.18), transparent 55%),
-    radial-gradient(circle at 80% 30%, rgba(0,0,0,0.05), transparent 58%),
-    radial-gradient(circle at 55% 90%, rgba(237,146,97,0.12), transparent 60%);
+    radial-gradient(circle at 20% 15%, rgba(237, 146, 97, 0.18), transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(0, 0, 0, 0.05), transparent 58%),
+    radial-gradient(circle at 55% 90%, rgba(237, 146, 97, 0.12), transparent 60%);
+  filter: blur(0.2px);
 }
 
 .special-card-bg.girls {
   background:
-    radial-gradient(circle at 25% 20%, rgba(255,102,217,0.18), transparent 55%),
-    radial-gradient(circle at 80% 35%, rgba(168,85,247,0.16), transparent 60%),
-    radial-gradient(circle at 55% 90%, rgba(59,130,255,0.10), transparent 62%),
-    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.06), transparent 70%);
+    radial-gradient(circle at 25% 20%, rgba(255, 102, 217, 0.18), transparent 55%),
+    radial-gradient(circle at 80% 35%, rgba(168, 85, 247, 0.16), transparent 60%),
+    radial-gradient(circle at 55% 90%, rgba(59, 130, 255, 0.10), transparent 62%),
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.06), transparent 70%);
 }
 
 .special-chip {
@@ -617,15 +233,15 @@ h3 {
   border-radius: 999px;
   padding: 6px 10px;
   font-size: 12px;
-  background: rgba(237,146,97,0.14);
+  background: rgba(237, 146, 97, 0.14);
   color: var(--brand-dark);
-  border: 1px solid rgba(237,146,97,0.18);
+  border: 1px solid rgba(237, 146, 97, 0.18);
 }
 
 .special-chip.girls {
-  background: rgba(168,85,247,0.12);
+  background: rgba(168, 85, 247, 0.12);
   color: rgba(90, 40, 150, 1);
-  border: 1px solid rgba(168,85,247,0.18);
+  border: 1px solid rgba(168, 85, 247, 0.18);
 }
 
 .special-link {
@@ -634,25 +250,26 @@ h3 {
 }
 
 .special-poster {
-  border-radius: 18px;
-  padding: 14px 14px;
-  border: 1px solid rgba(229,225,218,0.9);
-  background: rgba(255,255,255,0.85);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.06);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  border: 1px solid rgba(229, 225, 218, 0.9);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+  transform: translateZ(0);
 }
 
 .special-poster-kids {
   background:
-    radial-gradient(circle at 20% 20%, rgba(255,204,0,0.15), rgba(255,255,255,0.88) 55%),
-    radial-gradient(circle at 80% 30%, rgba(59,130,255,0.10), transparent 60%),
-    rgba(255,255,255,0.86);
+    radial-gradient(circle at 20% 20%, rgba(255, 204, 0, 0.15), rgba(255, 255, 255, 0.88) 55%),
+    radial-gradient(circle at 80% 30%, rgba(59, 130, 255, 0.10), transparent 60%),
+    rgba(255, 255, 255, 0.86);
 }
 
 .special-poster-girls {
   background:
-    radial-gradient(circle at 20% 25%, rgba(255,102,217,0.14), rgba(255,255,255,0.90) 55%),
-    radial-gradient(circle at 75% 30%, rgba(168,85,247,0.12), transparent 60%),
-    rgba(255,255,255,0.86);
+    radial-gradient(circle at 20% 25%, rgba(255, 102, 217, 0.14), rgba(255, 255, 255, 0.90) 55%),
+    radial-gradient(circle at 75% 30%, rgba(168, 85, 247, 0.12), transparent 60%),
+    rgba(255, 255, 255, 0.86);
 }
 
 .special-poster-top {
@@ -662,38 +279,44 @@ h3 {
   color: rgba(210, 80, 40, 0.9);
   margin-bottom: 8px;
 }
-
-.special-poster-top.girls { color: rgba(120, 60, 180, 0.95); }
+.special-poster-top.girls {
+  color: rgba(120, 60, 180, 0.95);
+}
 
 .special-poster-mid {
   font-size: 18px;
   line-height: 1.15;
-  color: rgba(30,30,30,0.92);
-  text-shadow: 0 10px 26px rgba(0,0,0,0.08);
+  color: rgba(30, 30, 30, 0.92);
+  text-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
 }
-
-.special-poster-mid.girls { text-shadow: 0 10px 30px rgba(168,85,247,0.18); }
+.special-poster-mid.girls {
+  text-shadow: 0 10px 30px rgba(168, 85, 247, 0.18);
+}
 
 .special-poster-em {
   font-size: 22px;
   font-weight: 800;
-  color: rgba(20,20,20,0.95);
+  color: rgba(20, 20, 20, 0.95);
 }
-
-.special-poster-em.girls { color: rgba(90, 40, 150, 0.95); }
+.special-poster-em.girls {
+  color: rgba(90, 40, 150, 0.95);
+}
 
 .special-poster-sub {
   margin-top: 10px;
   font-size: 12px;
-  color: rgba(90,90,90,0.92);
+  color: rgba(90, 90, 90, 0.92);
+}
+.special-poster-sub.girls {
+  color: rgba(95, 70, 120, 0.92);
 }
 
-.special-poster-sub.girls { color: rgba(95, 70, 120, 0.92); }
-
 .special-poster-phone,
-.special-poster-time { font-weight: 800; }
+.special-poster-time {
+  font-weight: 800;
+}
 
-/* Hover nur Desktop */
+/* Hover nur Desktop (kein “sticky hover” auf Touch) */
 @media (hover: hover) and (pointer: fine) {
   .special-card {
     transition: transform 260ms ease, box-shadow 260ms ease;
@@ -701,25 +324,25 @@ h3 {
 
   .special-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
   }
 
   .special-card:hover .special-card-bg {
     filter: brightness(1.08) saturate(1.1);
   }
 
-  .special-card:hover .special-card-bg.girls {
-    filter: brightness(1.1) saturate(1.15);
-  }
-
   .special-card:hover .special-poster-kids {
-    box-shadow: 0 22px 55px rgba(237,146,97,0.25);
+    box-shadow: 0 22px 55px rgba(237, 146, 97, 0.25);
     transform: scale(1.02);
     transition: transform 260ms ease, box-shadow 260ms ease;
   }
 
+  .special-card:hover .special-card-bg.girls {
+    filter: brightness(1.1) saturate(1.15);
+  }
+
   .special-card:hover .special-poster-girls {
-    box-shadow: 0 26px 65px rgba(168,85,247,0.35);
+    box-shadow: 0 26px 65px rgba(168, 85, 247, 0.35);
     transform: scale(1.02);
     transition: transform 260ms ease, box-shadow 260ms ease;
   }
@@ -729,3 +352,307 @@ h3 {
     text-underline-offset: 4px;
   }
 }
+
+/* ======================================================
+   OVERLAY SYSTEM – robust für Mobile (iOS/Android)
+====================================================== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:
+    max(16px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  overscroll-behavior: contain;
+}
+
+.overlay--dark {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(7px);
+}
+
+.overlay--glow {
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255, 102, 217, 0.18), transparent 55%),
+    radial-gradient(circle at 80% 35%, rgba(168, 85, 247, 0.16), transparent 60%),
+    radial-gradient(circle at 55% 90%, rgba(59, 130, 255, 0.10), transparent 62%),
+    rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(7px);
+}
+
+.overlay-close {
+  position: absolute;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2200;
+  padding: 10px;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.overlay-close--light {
+  color: #fff;
+}
+.overlay-close--glass {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.popup {
+  position: relative;
+  z-index: 2150;
+  width: min(520px, 92vw);
+
+  /* wichtig: iOS/Android stabil */
+  max-height: min(90vh, calc(100dvh - 32px));
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 2.1rem 1.9rem;
+  border-radius: var(--radius-xl);
+  text-align: center;
+  animation: sheetUp 0.22s ease-out;
+
+  /* verhindert “über den Rand” bei langen Wörtern/Links */
+  overflow-wrap: anywhere;
+}
+
+.popup--light {
+  background: #fff;
+  box-shadow: var(--shadow-pop);
+  color: var(--dark);
+}
+
+.popup--glass {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Mobile: Bottom-Sheet, kompakter + sicherer Abstand */
+@media (max-width: 640px) {
+  .overlay {
+    align-items: flex-end;
+    padding:
+      max(12px, env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left));
+  }
+
+  .popup {
+    width: 100%;
+    border-radius: 22px;
+    padding: 1.15rem 1.05rem;
+
+    /* KEY FIX: wirklich kleiner + sicher */
+    max-height: min(72dvh, calc(100dvh - 120px));
+  }
+
+  .popup .btn-brand,
+  .popup .btn-outline,
+  .popup .btn-light {
+    width: 100%;
+  }
+
+  .popup .flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@keyframes sheetUp {
+  from {
+    transform: translateY(22px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ======================================================
+   EFFECT LAYERS (Balloons & Bubbles)
+====================================================== */
+.balloon-layer,
+.bubble-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2120;
+}
+
+/* Balloons base */
+.balloon {
+  position: absolute;
+  top: 15%;
+  width: 44px;
+  height: 58px;
+  border-radius: 50% 50% 46% 46%;
+  opacity: 0.95;
+  background: radial-gradient(
+    circle at 30% 28%,
+    rgba(255, 255, 255, 0.95),
+    var(--balloon, var(--brand))
+  );
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.22));
+  will-change: transform, opacity;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 46px;
+  width: 2px;
+  height: 82px;
+  background: rgba(35, 35, 35, 0.35);
+  transform: translateX(-50%);
+  border-radius: 999px;
+}
+
+/* Default gentle */
+.balloon-fly {
+  animation-name: balloon-fly;
+}
+
+@keyframes balloon-fly {
+  0% {
+    transform: translate(0, 0) rotate(-6deg);
+  }
+  25% {
+    transform: translate(var(--drift, 40px), -18px) rotate(7deg);
+  }
+  50% {
+    transform: translate(calc(var(--drift, 40px) * -1), 14px) rotate(-7deg);
+  }
+  75% {
+    transform: translate(var(--drift, 40px), -10px) rotate(5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-6deg);
+  }
+}
+
+/* 🎈 Chaos Balloons (ohne “deg*number” calc) */
+.balloon-chaos {
+  animation-name: balloon-chaos;
+}
+
+@keyframes balloon-chaos {
+  0% {
+    transform: translate(0, 0) rotate(var(--r1, -8deg));
+  }
+  20% {
+    transform: translate(var(--dx1, 40px), var(--dy1, -18px)) rotate(var(--r2, 10deg));
+  }
+  45% {
+    transform: translate(var(--dx2, -60px), var(--dy2, 14px)) rotate(var(--r1, -8deg));
+  }
+  70% {
+    transform: translate(var(--dx3, 55px), var(--dy3, -10px)) rotate(var(--r3, 4deg));
+  }
+  100% {
+    transform: translate(0, 0) rotate(var(--r1, -8deg));
+  }
+}
+
+/* Bubbles */
+.bubble {
+  position: absolute;
+  bottom: -60px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.06)
+  );
+  filter: blur(0.1px);
+  will-change: transform, opacity;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-name: bubble-float;
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--drift, 40px), -55vh);
+  }
+  100% {
+    transform: translate(calc(var(--drift, 40px) * -1), -115vh);
+    opacity: 0;
+  }
+}
+
+/* ✨ Luxury Bubbles */
+.bubble-lux {
+  animation-name: bubble-lux;
+}
+
+@keyframes bubble-lux {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(var(--dx1, 20px), -55vh);
+  }
+  75% {
+    transform: translate(var(--dx2, -30px), -90vh);
+  }
+  100% {
+    transform: translate(var(--dx3, 15px), -120vh);
+    opacity: 0;
+  }
+}
+
+/* Helpers */
+.girls-eyebrow {
+  color: rgba(255, 209, 245, 0.9);
+}
+.girls-title {
+  color: rgba(255, 255, 255, 0.96);
+}
+.girls-text {
+  color: rgba(255, 255, 255, 0.9);
+}
+.girls-muted {
+  color: rgba(235, 230, 245, 0.75);
+}
+.girls-box {
+  border-radius: 18px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.girls-link {
+  color: rgba(255, 209, 245, 0.92);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+

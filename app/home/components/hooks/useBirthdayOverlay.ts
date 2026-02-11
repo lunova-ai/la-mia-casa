@@ -19,14 +19,20 @@ export function useBirthdayOverlay(opts: {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setShowBirthday(false);
     };
+
     window.addEventListener("keydown", onKeyDown);
 
+    // Animation starten
     setAnimateBalloons(true);
+
+    // Nach durationMs stoppen (aber Overlay bleibt offen, wie gewünscht)
     const timer = window.setTimeout(() => setAnimateBalloons(false), durationMs);
 
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       window.clearTimeout(timer);
+      // Wichtig: beim Schließen sofort stoppen, damit nix "nachläuft"
+      setAnimateBalloons(false);
     };
   }, [showBirthday, setShowBirthday, setAnimateBalloons, durationMs]);
 }
